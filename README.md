@@ -1,0 +1,1 @@
+# oraichain-static-files
