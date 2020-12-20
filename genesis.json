@@ -48,7 +48,7 @@
             "test_cases": [],
             "params": {
                 "oscript_reward_percentage": "70",
-                "maximum_code_bytes": "4096"
+                "maximum_code_bytes": "1048576"
             }
         },
         "bank": {
@@ -578,7 +578,7 @@
         "airequest": {
             "ai_requests": [],
             "params": {
-                "maximum_request_bytes": "4096"
+                "maximum_request_bytes": "1048576"
             }
         },
         "evidence": {
