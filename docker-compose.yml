@@ -1,6 +1,7 @@
 version: '3.3'
 services:
   orai_fullnode:
+    container_name: orai_fullnode
     image: orai/orai:alpine-prod
     working_dir: /workspace
     tty: true
