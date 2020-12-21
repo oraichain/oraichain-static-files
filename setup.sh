@@ -6,7 +6,3 @@ wget https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/d
 wget https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/orai.env
 
 # modify the orai.env name & content
-
-# run docker-compose up -d or docker-compose up to check the node log.
-
-docker-compose up -d
