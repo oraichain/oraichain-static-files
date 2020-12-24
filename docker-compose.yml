@@ -1,19 +1,16 @@
 version: '3.3'
 services:
-  orai_fullnode:
-    container_name: orai_fullnode
+  orai:
+  container_name: orai_node
     image: orai/orai:alpine-prod
     working_dir: /workspace
     tty: true
     ports:
       - 1317:1317
-    security_opt:
-      - "seccomp:unconfined"
+      - 26656:26656
+      - 26657:26657
     cap_add:
       - SYS_PTRACE
-    env_file: 
-      - orai.env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./:/workspace
-    command: bash -c "fn init && fn start"
