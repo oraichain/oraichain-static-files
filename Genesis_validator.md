@@ -17,7 +17,7 @@ sudo chmod +x setup_genesis.sh && ./setup_genesis.sh
 ### 4. Run the following command:
 
 ```
-docker-compose -f docker-compose.genesis.yml up -d
+sudo chmod +x init_genesis.sh && docker-compose -f docker-compose.genesis.yml up -d
 ```
 
 ### 5. Enter the container through the command:
