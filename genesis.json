@@ -88,6 +88,33 @@
                             "amount": "100000000000000"
                         }
                     ]
+                },
+                {
+                    "address": "orai1u9srr2gxhsfk4dx9zz2ut0zpppa2qs5jf7swyz",
+                    "coins": [
+                        {
+                            "denom": "orai",
+                            "amount": "100000000000000"
+                        }
+                    ]
+                },
+                {
+                    "address": "orai1c5am7cpttwm95dqy4mamdwvaqps2y0w0nc282l",
+                    "coins": [
+                        {
+                            "denom": "orai",
+                            "amount": "100000000000000"
+                        }
+                    ]
+                },
+                {
+                    "address": "orai1eavwjhudttjw03uuwk38cvr5s3m8kp2aytld8z",
+                    "coins": [
+                        {
+                            "denom": "orai",
+                            "amount": "100000000000000"
+                        }
+                    ]
                 }
             ],
             "supply": [],
@@ -153,7 +180,7 @@
                                 },
                                 "value": {
                                     "denom": "orai",
-                                    "amount": "1000000"
+                                    "amount": "1000000000"
                                 }
                             }
                         ],
@@ -214,7 +241,7 @@
                                 },
                                 "value": {
                                     "denom": "orai",
-                                    "amount": "1000000"
+                                    "amount": "1000000000"
                                 }
                             }
                         ],
@@ -275,7 +302,7 @@
                                 },
                                 "value": {
                                     "denom": "orai",
-                                    "amount": "1000000"
+                                    "amount": "1000000000"
                                 }
                             }
                         ],
@@ -336,7 +363,7 @@
                                 },
                                 "value": {
                                     "denom": "orai",
-                                    "amount": "1000000"
+                                    "amount": "1000000000"
                                 }
                             }
                         ],
