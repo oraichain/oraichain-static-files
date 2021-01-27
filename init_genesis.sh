@@ -53,11 +53,8 @@ oraid collect-gentxs
 
 oraid validate-genesis
 
-accounts=$(cat $PWD/.oraid/config/genesis.json | jq .app_state.auth.accounts)
-validators=$(cat $PWD/.oraid/config/genesis.json | jq .app_state.genutil.gen_txs)
-
-cat $PWD/.oraid/config/genesis.json | jq .app_state.auth.accounts > "$MONIKER"_accounts.txt
-cat $PWD/.oraid/config/genesis.json | jq .app_state.genutil.gen_txs > "$MONIKER"_validators.txt
+cat $PWD/.oraid/config/genesis.json | jq .app_state.auth.accounts.[0] -c > "$MONIKER"_accounts.txt
+cat $PWD/.oraid/config/genesis.json | jq .app_state.genutil.gen_txs.[0] -c > "$MONIKER"_validators.txt
 
 echo "The genesis initiation process has finished ..."
 
