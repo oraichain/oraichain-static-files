@@ -29,7 +29,7 @@ docker-compose -f docker-compose.genesis.yml exec orai ash
 ### 6. Type the following command to initiate your genesis node:
 
 ```bash
-setup <your passphrase>
+setup
 ```
 
 After running, there will be three .txt files generated. 
