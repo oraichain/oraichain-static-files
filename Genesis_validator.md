@@ -32,11 +32,11 @@ docker-compose -f docker-compose.genesis.yml exec orai ash
 setup
 ```
 
-After running, there will be three .txt files generated. 
+After running, there will be t .txt files generated. 
 
 One file, which is account.txt, stores your genesis account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account infromation.
 
-The next two files are <moniker_name>_accounts.txt & <moniker_name>_validators.txt. Please copy the contents of these two files and paste them to the following google form [here](https://forms.gle/s9tXqtQt5YKcVXvK6)
+The next file is <moniker_name>_validators.txt. Please copy the contents of these two files and paste them to the following google form [here](https://forms.gle/s9tXqtQt5YKcVXvK6)
 
 ### 8. Wait for the team to setup the genesis file
 
