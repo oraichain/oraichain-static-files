@@ -22,4 +22,3 @@ services:
     volumes:      
       - ./:/workspace
       - ./setup_genesis.sh:/usr/bin/setup
-      - ./fn.sh:/usr/bin/fn
