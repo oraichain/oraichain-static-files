@@ -23,7 +23,7 @@ docker-compose -f docker-compose.genesis.yml up -d
 ### 5. Enter the container through the command:
 
 ```
-docker-compose exec orai ash
+docker-compose -f docker-compose.genesis.yml exec orai ash
 ```
 
 ### 6. Type the following command to initiate your genesis node:
