@@ -51,7 +51,7 @@ Remember to replace the <list-of-private-ips-here> values to the one that the te
 Next, download the new genesis file containing all the information of the genesis nodes.
 
 ```bash
-wget $GENESIS_URL > .oraid/config/genesis.json
+wget -O .oraid/config/genesis.json $GENESIS_URL
 ```
 
 After downloading, please check if it contains your account and validator information. If it does not, please inform us so we can add your information.
