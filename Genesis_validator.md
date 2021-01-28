@@ -23,7 +23,7 @@ sudo chmod +x init_genesis.sh && mv docker-compose.genesis.yml docker-compose.ym
 ### 5. Enter the container through the command:
 
 ```bash
-docker-compose exec orai ash
+docker-compose exec orai bash
 ```
 
 ### 6. Type the following command to initiate your genesis node:
