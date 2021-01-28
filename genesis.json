@@ -875,7 +875,7 @@
     "staking": {
       "params": {
         "unbonding_time": "7200s",
-        "max_validators": 27,
+        "max_validators": 100,
         "max_entries": 7,
         "historical_entries": 1000,
         "bond_denom": "orai"
