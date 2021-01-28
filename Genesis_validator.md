@@ -12,7 +12,7 @@ curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/mast
 sudo chmod +x setup_genesis.sh && ./setup_genesis.sh
 ```
 
-### 3. Edit wallet name and moniker you prefer to create a new wallet and validator.
+### 3. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded.
 
 ### 4. Run the following commands:
 
