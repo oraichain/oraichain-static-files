@@ -32,7 +32,7 @@ docker-compose exec orai bash
 setup
 ```
 
-After running, there will be t .txt files generated. 
+After running, there will be two .txt files generated. 
 
 One file, which is account.txt, stores your genesis account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account infromation.
 
