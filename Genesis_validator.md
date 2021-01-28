@@ -56,10 +56,10 @@ curl $GENESIS_URL > .oraid/config/genesis.json
 
 After downloading, please check if it contains your account and validator information. If it does not, please inform us so we can add your information.
 
-### 10. Restart the container to start your node:
+### 10. Exit the container and type the following command to start your node:
 
 ```
-docker-compose restart orai
+docker-compose exec -d orai fn start
 ```
 
 to check if the node has run successfully, you can make a simple http request as follows:
