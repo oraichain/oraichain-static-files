@@ -14,16 +14,16 @@ sudo chmod +x setup_genesis.sh && ./setup_genesis.sh
 
 ### 3. Edit wallet name and moniker you prefer to create a new wallet and validator.
 
-### 4. Run the following command:
+### 4. Run the following commands:
 
-```
-sudo chmod +x init_genesis.sh && docker-compose -f docker-compose.genesis.yml pull && docker-compose -f docker-compose.genesis.yml up -d
+```bash
+sudo chmod +x init_genesis.sh && mv docker-compose.genesis.yml docker-compose.yml && docker-compose pull && docker-compose up -d
 ```
 
 ### 5. Enter the container through the command:
 
-```
-docker-compose -f docker-compose.genesis.yml exec orai ash
+```bash
+docker-compose exec orai ash
 ```
 
 ### 6. Type the following command to initiate your genesis node:
@@ -59,7 +59,7 @@ After downloading, please check if it contains your account and validator inform
 ### 10. Restart the container to start your node:
 
 ```
-docker-compose -f docker-compose.genesis.yml restart orai
+docker-compose restart orai
 ```
 
 to check if the node has run successfully, you can make a simple http request as follows:
