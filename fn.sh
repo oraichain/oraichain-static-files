@@ -175,7 +175,7 @@ oraidFn(){
     pkill oraid
     if [[ -d "$PWD/.oraid/" ]] 
     then
-      oraid start --rpc.laddr tcp://0.0.0.0:26657 --log_level $(getArgument "log_level" $LOG_LEVEL) --p2p.seeds $(getArgument "seeds" $SEEDS) --p2p.seed_mode $(getArgument "seed_mode" false)
+      oraid start --rpc.laddr tcp://0.0.0.0:26657 --log_level $(getArgument "log_level" $LOG_LEVEL) --p2p.seeds $(getArgument "seeds" $SEEDS) --p2p.seed_mode $(getArgument "seed_mode" false) --p2p.persistent_peers $(getArgument "persistent_peers" "")
     else
       tail -f /dev/null 
     fi
