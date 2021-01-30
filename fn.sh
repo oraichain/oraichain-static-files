@@ -203,7 +203,7 @@ initFn(){
 
     echo "passphrase: $PASS"
 
-    sleep 3
+    sleep 10
 
     if [ -z "$MNEMONIC" ]
     then 
@@ -213,7 +213,7 @@ initFn(){
 
     echo "mnemonic: $MNEMONIC"
 
-    sleep 3
+    sleep 10
 
     # Configure your CLI to eliminate need to declare them as flags
 
