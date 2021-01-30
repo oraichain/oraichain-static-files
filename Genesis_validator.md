@@ -59,7 +59,7 @@ After downloading, please check if it contains your account and validator inform
 ### 10. Exit the container and type the following command to start your node:
 
 ```
-docker-compose exec -d orai fn start
+docker-compose exec -d orai fn start --log_level error --seeds "db17ded030e8e7589797514f7e1b343b98357612@178.128.61.252:26656,1e65e100baa0b7381df47606c12c5d0bdb99cdb2@157.230.22.169:26656,a1440e003576132b5e96e7f898568114d47eb2df@165.232.118.44:26656"
 ```
 
 to check if the node has run successfully, you can make a simple http request as follows:
@@ -108,4 +108,11 @@ if you see your validator information as well as others, then your node is runni
     "total": "1"
   }
 }
+```
+
+### NOTE
+Since we are using a script to simplify the commands you have to use to run the nodes, we will be updating it frequently. To update the script file, type:
+
+```bash
+docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/fn.sh && chmod +x /usr/bin/fn'
 ```
