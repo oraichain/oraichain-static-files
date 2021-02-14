@@ -32,11 +32,11 @@ docker-compose exec orai bash
 setup
 ```
 
-After running, there will be two .txt files generated. 
+After running, there will be a account.txt file generated, which stores your genesis account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account infromation.
 
-One file, which is account.txt, stores your genesis account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account infromation.
+### 7. Copy the validtor information
 
-The next file is <moniker_name>_validators.txt. Please copy the contents of these two files and paste them to the following google form [here](https://forms.gle/s9tXqtQt5YKcVXvK6)
+Please enter the .oraid/config/gentx/ directory. You'll see a json file which contains your validator information. Please copy its content and submit it to the goggle form [here](https://forms.gle/s9tXqtQt5YKcVXvK6)
 
 ### 8. Wait for the team to setup the genesis file
 
