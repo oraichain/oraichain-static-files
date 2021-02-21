@@ -72,7 +72,7 @@ oraid init <moniker> --chain-id Oraichain
 
 you can choose whatever moniker as you like, since your sentry nodes will not run as validators.
 
-### 4. Download the common genesis file
+### 4. Download the common genesis file (If only the common genesis file is set)
 
 ```bash
 wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/mainnet_launch/genesis.json
