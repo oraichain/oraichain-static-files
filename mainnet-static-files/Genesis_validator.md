@@ -16,7 +16,7 @@ sudo chmod +x setup_genesis.sh && ./setup_genesis.sh
 
 ### 3. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
 
-Since we are genesis validators, we need to expose nodes with public ip addresses for other nodes to connect to. Please edit the orai.env by adding a list of your public ip addresses in the WEBSITE key. Example: WEBSITE="1.2.3.4,2.3.4.5"
+Since we are genesis validators, we need to expose nodes with public ip addresses for other nodes to connect to. Please edit the orai.env by adding a list of your public ip addresses in the WEBSITE key. Example: WEBSITE=1.2.3.4,2.3.4.5
 
 ### 4. Build and enter the container
 
