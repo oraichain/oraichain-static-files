@@ -52,7 +52,17 @@ After downloading, please check if it contains your account and validator inform
 
 ## Setup your sentry nodes
 
-This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture
+This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture. 
+
+### Note
+
+If you prefer your custom architecture, then you can skip this section and the [Setup the sentry architecture](#setup-the-sentry-architecture) section. Instead, you only need to provide public ip addresses and node ids that other nodes can connect to. Remember to expose at least two ports: **26656 and 26657**
+
+To get a node id, type:
+
+```bash
+oraid tendermint show-node-id
+```
 
 ### 1. Download the docker-compose file
 
@@ -155,13 +165,13 @@ The Oraichain team will also provide some public ip addresses for others as a st
 oraivisor start
 ```
 
-or:
+or if you want to use flags instead:
 
 ```bash
 oraivisor start --p2p.pex false --p2p.persistent_peers "<node-id1>@<private-ip1>:26656,<node-id2>@<private-ip2>:26656"
 ```
 
-### 3. Start the sentry nodes
+### 3. Start the sentry nodes (optional if you have such nodes)
 
 ```bash
 oraivisor start
