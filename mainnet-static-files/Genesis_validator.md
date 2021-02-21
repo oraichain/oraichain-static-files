@@ -30,13 +30,13 @@ sudo chmod +x init_genesis.sh && mv docker-compose.genesis.yml docker-compose.ym
 setup
 ```
 
-After running, there will be an account.txt file generated, which stores your genesis account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account information.
+After running, there will be an **account.txt** file generated, which stores your genesis account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account information.
 
-You also need to store two following files: .oraid/config/node_key.json and .oraid/config/priv_validator_key.json. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
+You also need to store two following files: **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json**. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
 
 ### 6. Copy the validtor information
 
-Please enter the .oraid/config/gentx/ directory. You'll see a json file which contains your validator information. Please copy its content and send us through the email support@orai.io
+Please enter the **.oraid/config/gentx/** directory. You'll see a json file which contains your validator information. Please copy its content and send us through the email support@orai.io
 
 ### 7. Wait for the team to setup the genesis file
 
@@ -50,7 +50,9 @@ wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/o
 
 After downloading, please check if it contains your account and validator information. If it does not, please inform us so we can add your information.
 
-## Setup your sentry nodes (optional if you want to follow the sentry architecture)
+## Setup your sentry nodes
+
+This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture
 
 ### 1. Download the docker-compose file
 
@@ -78,9 +80,9 @@ you can choose whatever moniker as you like, since your sentry nodes will not ru
 wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json
 ```
 
-## Setup the sentry architecture (optional if you want to follow the sentry architecture)
+## Setup the sentry architecture
 
-You can set the following configurations in the file .oraid/config/config.toml directly. Some pairs can be configured through the start command. This architecture will help you connect your genesis nodes with your sentry nodes, and your sentry nodes are responsible for connecting to other nodes within the network. For more information, please click [here](https://docs.tendermint.com/master/nodes/validators.html). To start using flags, please type:
+This section is optional if you want to follow the sentry architecture. You can set the following configurations in the file .oraid/config/config.toml directly. Some pairs can be configured through the start command. This architecture will help you connect your genesis nodes with your sentry nodes, and your sentry nodes are responsible for connecting to other nodes within the network. To start using flags, please type:
 
 ```bash
 oraivisor start --help
