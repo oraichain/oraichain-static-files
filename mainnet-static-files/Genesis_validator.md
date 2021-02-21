@@ -105,6 +105,8 @@ To get a node id, type:
 oraid tendermint show-node-id
 ```
 
+some configuration values can only be changed in the **.oraid/config/config.toml** file, like **addr_book_strict**
+
 Example:
 
 ```bash
