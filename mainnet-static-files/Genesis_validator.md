@@ -45,7 +45,7 @@ Please enter the .oraid/config/gentx/ directory. You'll see a json file which co
 Firstly, download the new genesis file containing all the information of the genesis nodes.
 
 ```bash
-wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/mainnet_launch/genesis.json
+wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json
 ```
 
 After downloading, please check if it contains your account and validator information. If it does not, please inform us so we can add your information.
@@ -55,7 +55,7 @@ After downloading, please check if it contains your account and validator inform
 ### 1. Download the docker-compose file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/mainnet_launch/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml
 ```
 
 ### 2. Enter the container
@@ -75,7 +75,7 @@ you can choose whatever moniker as you like, since your sentry nodes will not ru
 ### 4. Download the common genesis file (If only the common genesis file is set)
 
 ```bash
-wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/mainnet_launch/genesis.json
+wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json
 ```
 
 ## Setup the sentry architecture (optional if you want to follow the sentry architecture)
