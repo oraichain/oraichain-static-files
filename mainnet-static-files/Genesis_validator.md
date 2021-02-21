@@ -96,7 +96,6 @@ You also need to prepare your own VPC network beforehand.
 pex = false
 persistent_peers = <list of sentry nodes with node id, private ips, port 26656>
 addr_book_strict = false
-double-sign-check-height = 10
 unconditional-peer-ids (optional) = <list of sentry node ids>
 ```
 
