@@ -5,7 +5,7 @@
 ### 1. Download the genesis setup file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/setup_genesis.sh
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup_genesis.sh
 ```
 
 ### 2. Run the genesis setup file
