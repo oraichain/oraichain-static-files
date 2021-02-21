@@ -82,7 +82,7 @@ wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/o
 
 ## Setup the sentry architecture
 
-This section is optional if you want to follow the sentry architecture. You can set the following configurations in the file .oraid/config/config.toml directly. Some pairs can be configured through the start command. This architecture will help you connect your genesis nodes with your sentry nodes, and your sentry nodes are responsible for connecting to other nodes within the network. To start using flags, please type:
+This section is optional if you want to follow the sentry architecture. You can set the following configurations in the file **.oraid/config/config.toml** directly. Some pairs can be configured through the start command. This architecture will help you connect your genesis nodes with your sentry nodes, and your sentry nodes are responsible for connecting to other nodes within the network. To start using flags, please type:
 
 ```bash
 oraivisor start --help
