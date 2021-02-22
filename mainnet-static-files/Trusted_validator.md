@@ -1,4 +1,4 @@
-# Tutorial to participate in 
+# Tutorial to participate in the Oraichain mainnet
 
 ## Setup the trusted validator node
 
@@ -41,7 +41,7 @@ oraid tendermint show-node-id
 ### 1. Download the docker-compose file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml && touch orai.env
 ```
 
 ### 2. Enter the container
