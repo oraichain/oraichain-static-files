@@ -1,58 +1,32 @@
 # Tutorial to participate in the genesis phase
 
-## Setup the genesis node
+## Setup the trusted validator node
 
-### 1. Download the genesis setup file
-
-```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup_genesis.sh
-```
-
-### 2. Run the genesis setup file
+### 1. Download and run the trusted setup file
 
 ```bash
-sudo chmod +x setup_genesis.sh && ./setup_genesis.sh
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh && chmod +x ./setup.sh && ./setup.sh
 ```
 
-### 3. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
+### 2. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
 
-Since we are genesis validators, we need to expose nodes with public ip addresses for other nodes to connect to. Please edit the orai.env by adding a list of your public ip addresses in the WEBSITE key. Example: WEBSITE=1.2.3.4,2.3.4.5
-
-### 4. Build and enter the container
+### 3. Build and enter the container
 
 ```bash
-sudo chmod +x init_genesis.sh && mv docker-compose.genesis.yml docker-compose.yml && docker-compose pull && docker-compose up -d && docker-compose exec orai bash
+docker-compose pull && docker-compose up -d --force-recreate
 ```
 
-### 5. Type the following command to initiate your genesis node
+### 5. Type the following command to initiate your trusted node
 
 ```bash
-setup
+docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/fn.sh && chmod +x /usr/bin/fn' && docker-compose exec orai fn init
 ```
 
-After running, there will be an **account.txt** file generated, which stores your genesis account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account information.
-
-You also need to store two following files: **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json**. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
-
-### 6. Copy the validtor information
-
-Please enter the **.oraid/config/gentx/** directory. You'll see a json file which contains your validator information. Please copy its content and send us through the email support@orai.io
-
-### 7. Wait for the team to setup the genesis file
-
-### 8. Download the common genesis file
-
-Firstly, download the new genesis file containing all the information of the genesis nodes.
-
-```bash
-wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json
-```
-
-After downloading, please check if it contains your account and validator information. If it does not, please inform us so we can add your information.
+You need to store two following files: **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json**. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
 
 ## Setup your sentry nodes
 
-This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture. 
+This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture
 
 ### Note
 
@@ -155,11 +129,7 @@ You should also set up firewalls for your genesis nodes.
 
 ## Start the network
 
-### 1. Connect your nodes to other genesis nodes
-
-The Oraichain team will also provide some public ip addresses for others as a starting point. You can check the genesis.json file, at the **website** part to look for our addresses. You should add them in the config.toml file, in the pair **persistent_peers** or through the flags to connect with us.
-
-### 2. Start the genesis node
+### 1. Start the trusted node
 
 ```bash
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start'
@@ -171,7 +141,9 @@ or if you want to use flags instead:
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --p2p.pex false --p2p.persistent_peers "<node-id1>@<private-ip1>:26656,<node-id2>@<private-ip2>:26656"'
 ```
 
-### 3. Start the sentry nodes (optional if you have such nodes)
+The above commands run as the background process. You can always run them in the foreground process by removing the "-d" flag
+
+### 2. Start the sentry nodes (optional if you have such nodes)
 
 ```bash
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start'
@@ -183,9 +155,19 @@ or:
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --rpc.laddr tcp://0.0.0.0:26657 --p2p.pex false --p2p.persistent_peers "<node-id1>@<private-ip1>:26656,<node-id2>@<private-ip2>:26656" --p2p.unconditional_peer_ids "<id1>,<id2>,<id3>" --p2p.private_peer_ids "<id1>,<id2>,<id3>"'
 ```
 
-## Check your node status
+### 3. Wait for the team to distribute tokens to your wallet
 
-Similarly to the medium article, you can check your node status through:
+Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your wallet information. Please wait until you receive tokens as well as the **catching up** status to **false** to continue
+
+### 4. Create validator transaction
+
+```bash
+docker-compose exec -d orai bash -c 'fn createValidator'
+```
+
+## Check your node status with voting power
+
+Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your node status through:
 
 ```bash
 oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up, voting_power: .ValidatorInfo.VotingPower}'
