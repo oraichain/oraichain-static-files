@@ -162,7 +162,7 @@ Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-te
 
 ### 4. Create validator transaction
 
-pl
+please enter the container and type:
 
 ```bash
 fn createValidator
