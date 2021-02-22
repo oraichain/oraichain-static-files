@@ -1,4 +1,4 @@
-# Tutorial to participate in the genesis phase
+# Tutorial to participate in 
 
 ## Setup the trusted validator node
 
