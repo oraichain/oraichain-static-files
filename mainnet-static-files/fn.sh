@@ -319,7 +319,7 @@ createValidatorFn() {
   if [[ $gasPrices == "" ]]; then
     gasPrices="0.000000000025orai"
   fi
-  local securityContract=$(getArgument "security_contract" $SECURITY_CONTRACT)
+  local securityContact=$(getArgument "security_contact" $SECURITY_CONTACT)
   local identity=$(getArgument "identity" $IDENTITY)
   local website=$(getArgument "website" $WEBSITE)
   local details=$(getArgument "details" $DETAILS)
@@ -328,7 +328,7 @@ createValidatorFn() {
   requirePass
   sleep 5
 
-  (echo "$PASS"; echo "$PASS") | oraid tx staking create-validator --amount $amount --pubkey $pubkey --moniker $moniker --chain-id Oraichain --commission-rate $commissionRate --commission-max-rate $commissionMaxRate --commission-max-change-rate $commissionMaxChangeRate --min-self-delegation $minDelegation --gas $gas --gas-prices $gasPrices --security-contact $securityContract --identity $identity --website $website --details $details --from $user -y
+  (echo "$PASS"; echo "$PASS") | oraid tx staking create-validator --amount $amount --pubkey $pubkey --moniker $moniker --chain-id Oraichain --commission-rate $commissionRate --commission-max-rate $commissionMaxRate --commission-max-change-rate $commissionMaxChangeRate --min-self-delegation $minDelegation --gas $gas --gas-prices $gasPrices --security-contact $securityContact --identity $identity --website $website --details $details --from $user -y
 }
 
 USER=$(getArgument "user" $USER)
