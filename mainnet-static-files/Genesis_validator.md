@@ -162,6 +162,8 @@ The Oraichain team will also provide some public ip addresses for others as a st
 
 ### 2. Start the genesis node
 
+If you do not specify the flags, you must add at least a persistent peer connection in the **.oraid/config/config.toml** file before running the below command
+
 ```bash
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start'
 ```
