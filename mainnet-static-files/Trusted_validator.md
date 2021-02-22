@@ -129,6 +129,8 @@ You should also set up firewalls for your genesis nodes.
 
 ## Start the network
 
+Please exit the container and follow the below steps to start the nodes
+
 ### 1. Start the trusted node
 
 ```bash

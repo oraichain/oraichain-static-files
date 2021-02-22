@@ -155,6 +155,8 @@ You should also set up firewalls for your genesis nodes.
 
 ## Start the network
 
+Please exit the container and follow the below steps to start the nodes
+
 ### 1. Connect your nodes to other genesis nodes
 
 The Oraichain team will also provide some public ip addresses for others as a starting point. You can check the genesis.json file, at the **website** part to look for our addresses. You should add them in the config.toml file, in the pair **persistent_peers** or through the flags to connect with us.
