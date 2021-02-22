@@ -2,29 +2,23 @@
 
 ## Setup the genesis node
 
-### 1. Download the genesis setup file
+### 1. Run the genesis setup file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup_genesis.sh
+curl https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh | sh
 ```
 
-### 2. Run the genesis setup file
-
-```bash
-sudo chmod +x setup_genesis.sh && ./setup_genesis.sh
-```
-
-### 3. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
+### 2. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
 
 Since we are genesis validators, we need to expose nodes with public ip addresses for other nodes to connect to. Please edit the orai.env by adding a list of your public ip addresses in the WEBSITE key. Example: WEBSITE=1.2.3.4,2.3.4.5
 
-### 4. Build and enter the container
+### 3. Build and enter the container
 
 ```bash
 sudo chmod +x init_genesis.sh && mv docker-compose.genesis.yml docker-compose.yml && docker-compose pull && docker-compose up -d && docker-compose exec orai bash
 ```
 
-### 5. Type the following command to initiate your genesis node
+### 4. Type the following command to initiate your genesis node
 
 ```bash
 setup
@@ -34,13 +28,14 @@ After running, there will be an **account.txt** file generated, which stores you
 
 You also need to store two following files: **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json**. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
 
-### 6. Copy the validtor information
+### 5. Copy the validtor information
 
-Please enter the **.oraid/config/gentx/** directory. You'll see a json file which contains your validator information. Please copy its content and send us through the email support@orai.io with title: **gentx mainnet your-moniker**
+Please send the result of this command to the support member via telegram :  
+`curl -sF "file=@$(ls .oraid/config/gentx/gentx-*.json 2>&1)" https://file.io | jq '.link' -r`
 
-### 7. Wait for the team to setup the genesis file
+### 6. Wait for the team to setup the genesis file
 
-### 8. Download the common genesis file
+### 7. Download the common genesis file
 
 Firstly, download the new genesis file containing all the information of the genesis nodes.
 
@@ -52,7 +47,7 @@ After downloading, please check if it contains your account and validator inform
 
 ## Setup your sentry nodes
 
-This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture. 
+This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture.
 
 ### Note
 
@@ -120,11 +115,12 @@ some configuration values can only be changed in the **.oraid/config/config.toml
 Example:
 
 ```bash
-pex = false
-persistent_peers = "014b6fa1fd8d14fa7e08c353497baa1f5581a089@1.2.3.4:26656,bc806159212529879b42c737c2338042e396b1dd@2.3.4.5:26656"
-addr_book_strict = false
-double-sign-check-height = 10
-unconditional-peer-ids (optional) = "014b6fa1fd8d14fa7e08c353497baa1f5581a089,bc806159212529879b42c737c2338042e396b1dd"
+# change addr_book_strict to false
+sed -i 's/addr_book_strict *= *.*/addr_book_strict = false/g' .oraid/config/config.toml
+# --p2p.unconditional-peer-ids (optional)
+oraivisor start --p2p.pex false \
+  --p2p.persistent_peers "014b6fa1fd8d14fa7e08c353497baa1f5581a089@1.2.3.4:26656,bc806159212529879b42c737c2338042e396b1dd@2.3.4.5:26656" \
+  --p2p.unconditional-peer-ids "014b6fa1fd8d14fa7e08c353497baa1f5581a089,bc806159212529879b42c737c2338042e396b1dd"
 ```
 
 ### 2. Sentry node configuration
@@ -142,13 +138,16 @@ when starting, set flag --rpc.laddr tcp://0.0.0.0:26657
 Example:
 
 ```bash
-pex = true
-unconditional-peer-ids = "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc"
-persistent_peers = "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc@5.6.7.8:26656"
-private_peer_ids = "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc"
-addr_book_strict = false
-external_address = "tcp://1.2.3.4:26656"
-when starting: oraivisor start --rpc.laddr tcp://0.0.0.0:26657
+# change addr_book_strict to false
+sed -i 's/addr_book_strict *= *.*/addr_book_strict = false/g' .oraid/config/config.toml
+# update your external_address
+public_ip=1.2.3.4
+sed -i 's/external_address *= *".*"/external_address = "tcp:\/\/'$public_ip':26656"/g' .oraid/config/config.toml
+# --p2p.unconditional-peer-ids (optional)
+oraivisor start --p2p.pex true --rpc.laddr tcp://0.0.0.0:26657 \
+  --p2p.persistent_peers "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc@5.6.7.8:26656" \
+  --p2p.unconditional-peer-ids "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc" \
+  --p2p.private_peer_ids "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc"
 ```
 
 You should also set up firewalls for your genesis nodes.
@@ -190,7 +189,7 @@ docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor st
 Similarly to the medium article, you can check your node status through:
 
 ```bash
-oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up, voting_power: .ValidatorInfo.VotingPower}'
+oraid status 2>&1 | jq '{catching_up: .SyncInfo.catching_up, voting_power: .ValidatorInfo.VotingPower}'
 ```
 
 If you see that your VotingPower is greater than 0, and the catching_up is false, then congratulations, you are a validator now!
