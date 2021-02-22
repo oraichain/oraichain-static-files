@@ -28,10 +28,6 @@ You need to store two following files: **.oraid/config/node_key.json, .oraid/con
 
 This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture
 
-### Note
-
-If you prefer your custom architecture, then you can skip this section and the [Setup the sentry architecture](#setup-the-sentry-architecture) section. Instead, you only need to provide public ip addresses and node ids that other nodes can connect to. Remember to expose at least two ports: **26656 and 26657**
-
 To get a node id, type:
 
 ```bash
@@ -127,6 +123,8 @@ when starting: oraivisor start --rpc.laddr tcp://0.0.0.0:26657
 You should also set up firewalls for your genesis nodes.
 
 ## Start the network
+
+As a validator, you shoud provide public ip addresses and node ids of your sentry nodes your that other nodes can connect to. You can expose your validator node directly, or you can use sentry nodes. Remember to expose at least two ports: **26656 and 26657**
 
 Please exit the container and follow the below steps to start the nodes
 
