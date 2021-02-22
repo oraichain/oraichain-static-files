@@ -47,7 +47,7 @@ After downloading, please check if it contains your account and validator inform
 
 ## Setup your sentry nodes
 
-This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture.
+This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture. Otherwise, if you only want to run a simple genesis node, please move to the section [Start the network](#start-the-network)
 
 ### Note
 
@@ -62,7 +62,7 @@ oraid tendermint show-node-id
 ### 1. Download the docker-compose file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml && touch orai.env
 ```
 
 ### 2. Enter the container
