@@ -5,7 +5,7 @@
 ### 1. Run the genesis setup file
 
 ```bash
-curl https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh | sh
+curl https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup_genesis.sh | sh
 ```
 
 ### 2. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
