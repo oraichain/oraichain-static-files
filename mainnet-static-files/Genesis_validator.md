@@ -36,7 +36,7 @@ You also need to store two following files: **.oraid/config/node_key.json, .orai
 
 ### 6. Copy the validtor information
 
-Please enter the **.oraid/config/gentx/** directory. You'll see a json file which contains your validator information. Please copy its content and send us through the email support@orai.io
+Please enter the **.oraid/config/gentx/** directory. You'll see a json file which contains your validator information. Please copy its content and send us through the email support@orai.io with title: gentx mainnet <your-
 
 ### 7. Wait for the team to setup the genesis file
 
