@@ -176,7 +176,7 @@ docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor st
 ### 3. Start the sentry nodes (optional if you have such nodes)
 
 ```bash
-docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start'
+docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --rpc.laddr tcp://0.0.0.0:26657'
 ```
 
 or:
