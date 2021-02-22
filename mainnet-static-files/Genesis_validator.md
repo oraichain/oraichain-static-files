@@ -47,11 +47,7 @@ After downloading, please check if it contains your account and validator inform
 
 ## Setup your sentry nodes
 
-This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture. Otherwise, if you only want to run a simple genesis node, please move to the section [Start the network](#start-the-network)
-
-### Note
-
-If you prefer your custom architecture, then you can skip this section and the [Setup the sentry architecture](#setup-the-sentry-architecture) section. Instead, you only need to provide public ip addresses and node ids that other nodes can connect to. Remember to expose at least two ports: **26656 and 26657**
+This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture. Otherwise, if you only want to run a simple genesis node, please move to the section [Start the network](#start-the-network).
 
 To get a node id, type:
 
@@ -153,6 +149,8 @@ oraivisor start --p2p.pex true --rpc.laddr tcp://0.0.0.0:26657 \
 You should also set up firewalls for your genesis nodes.
 
 ## Start the network
+
+As a validator, you shoud provide public ip addresses and node ids of your sentry nodes your that other nodes can connect to. You can expose your validator node directly, or you can use sentry nodes. Remember to expose at least two ports: **26656 and 26657**
 
 Please exit the container and follow the below steps to start the nodes
 
