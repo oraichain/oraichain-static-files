@@ -5,7 +5,7 @@
 ### 1. Download and run the trusted setup file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh && chmod +x ./setup.sh && ./setup.sh
+curl https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh | sh
 ```
 
 ### 2. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
