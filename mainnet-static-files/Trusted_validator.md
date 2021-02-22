@@ -132,6 +132,8 @@ Please exit the container and follow the below steps to start the nodes
 
 ### 1. Start the trusted node
 
+If you do not specify the flags, you must add at least a persistent peer connection in the **.oraid/config/config.toml** file before running the below command
+
 ```bash
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start'
 ```
