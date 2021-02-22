@@ -97,7 +97,6 @@ Example:
 pex = false
 persistent_peers = "014b6fa1fd8d14fa7e08c353497baa1f5581a089@1.2.3.4:26656,bc806159212529879b42c737c2338042e396b1dd@2.3.4.5:26656"
 addr_book_strict = false
-double-sign-check-height = 10
 unconditional-peer-ids (optional) = "014b6fa1fd8d14fa7e08c353497baa1f5581a089,bc806159212529879b42c737c2338042e396b1dd"
 ```
 
