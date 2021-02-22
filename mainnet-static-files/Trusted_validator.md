@@ -162,8 +162,10 @@ Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-te
 
 ### 4. Create validator transaction
 
+pl
+
 ```bash
-docker-compose exec -d orai bash -c 'fn createValidator'
+fn createValidator
 ```
 
 ## Check your node status with voting power
