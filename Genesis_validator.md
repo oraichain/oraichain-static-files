@@ -1,118 +1,196 @@
 # Tutorial to participate in the genesis phase
 
-### 1. Download the setup file.
+## Setup the trusted validator node
+
+### 1. Download and run the trusted setup file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/setup_genesis.sh
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh && chmod +x ./setup.sh && ./setup.sh
 ```
 
-### 2. Run the setup file.
+### 2. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
+
+### 3. Build and enter the container
 
 ```bash
-sudo chmod +x setup_genesis.sh && ./setup_genesis.sh
+docker-compose pull && docker-compose up -d --force-recreate
 ```
 
-### 3. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded.
-
-### 4. Run the following commands:
+### 5. Type the following command to initiate your trusted node
 
 ```bash
-sudo chmod +x init_genesis.sh && mv docker-compose.genesis.yml docker-compose.yml && docker-compose pull && docker-compose up -d
+docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/fn.sh && chmod +x /usr/bin/fn' && docker-compose exec orai fn init
 ```
 
-### 5. Enter the container through the command:
+You need to store two following files: **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json**. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
+
+## Setup your sentry nodes
+
+This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture
+
+### Note
+
+If you prefer your custom architecture, then you can skip this section and the [Setup the sentry architecture](#setup-the-sentry-architecture) section. Instead, you only need to provide public ip addresses and node ids that other nodes can connect to. Remember to expose at least two ports: **26656 and 26657**
+
+To get a node id, type:
 
 ```bash
-docker-compose exec orai bash
+oraid tendermint show-node-id
 ```
 
-### 6. Type the following command to initiate your genesis node:
+### 1. Download the docker-compose file
 
 ```bash
-setup
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml
 ```
 
-After running, there will be a account.txt file generated, which stores your genesis account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account infromation.
-
-### 7. Copy the validtor information
-
-Please enter the .oraid/config/gentx/ directory. You'll see a json file which contains your validator information. Please copy its content and submit it to the goggle form [here](https://forms.gle/s9tXqtQt5YKcVXvK6)
-
-### 8. Wait for the team to setup the genesis file
-
-### 9. After the team has finished setting up, type the following commands:
+### 2. Enter the container
 
 ```bash
-sed -i 's/persistent_peers *= *".*"/persistent_peers = "'"<list-of-private-ips-here>"'"/g' .oraid/config/config.toml 
+docker-compose pull && docker-compose up -d && docker-compose exec orai bash
 ```
 
-Remember to replace the <list-of-private-ips-here> values to the one that the team provides.
-
-Next, download the new genesis file containing all the information of the genesis nodes.
+### 3. Initiate the node so it has necessary configuration files
 
 ```bash
-wget -O .oraid/config/genesis.json $GENESIS_URL
+oraid init <moniker> --chain-id Oraichain
 ```
 
-After downloading, please check if it contains your account and validator information. If it does not, please inform us so we can add your information.
+you can choose whatever moniker as you like, since your sentry nodes will not run as validators.
 
-### 10. Exit the container and type the following command to start your node:
-
-```
-docker-compose exec -d orai fn start --log_level error --seeds "db17ded030e8e7589797514f7e1b343b98357612@178.128.61.252:26656,1e65e100baa0b7381df47606c12c5d0bdb99cdb2@157.230.22.169:26656,a1440e003576132b5e96e7f898568114d47eb2df@165.232.118.44:26656"
-```
-
-to check if the node has run successfully, you can make a simple http request as follows:
+### 4. Download the common genesis file (If only the common genesis file is set)
 
 ```bash
-curl  -X GET http://localhost:1317/cosmos/staking/v1beta1/validators
+wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json
 ```
 
-if you see your validator information as well as others, then your node is running well
+## Setup the sentry architecture
 
-```json
-{
-  "validators": [
-    {
-      "operator_address": "oraivaloper13fw6fhmcnllp4c4u584rjsnuun2stddjgngk4y",
-      "consensus_pubkey": {
-        "@type": "/cosmos.crypto.ed25519.PubKey",
-        "key": "B5zXxXtJ3fGOp9Ngxn5GtemEuX7JrAZL/ysayZSU2V4="
-      },
-      "jailed": false,
-      "status": "BOND_STATUS_BONDED",
-      "tokens": "250000000",
-      "delegator_shares": "250000000.000000000000000000",
-      "description": {
-        "moniker": "phamthanhtu",
-        "identity": "",
-        "website": "",
-        "security_contact": "",
-        "details": ""
-      },
-      "unbonding_height": "0",
-      "unbonding_time": "1970-01-01T00:00:00Z",
-      "commission": {
-        "commission_rates": {
-          "rate": "0.100000000000000000",
-          "max_rate": "0.200000000000000000",
-          "max_change_rate": "0.010000000000000000"
-        },
-        "update_time": "2021-01-27T07:46:51.048265860Z"
-      },
-      "min_self_delegation": "1"
-    }
-  ],
-  "pagination": {
-    "next_key": null,
-    "total": "1"
-  }
-}
-```
-
-### NOTE
-Since we are using a script to simplify the commands you have to use to run the nodes, we will be updating it frequently. To update the script file, type:
+This section is optional if you want to follow the sentry architecture. You can set the following configurations in the file **.oraid/config/config.toml** directly. Some pairs can be configured through the start command. This architecture will help you connect your genesis nodes with your sentry nodes, and your sentry nodes are responsible for connecting to other nodes within the network. To start using flags, please type:
 
 ```bash
-docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/fn.sh && chmod +x /usr/bin/fn'
+oraivisor start --help
 ```
+
+You also need to prepare your own VPC network beforehand.
+
+### 1. Validator node configuration
+
+```bash
+pex = false
+persistent_peers = <list of sentry nodes with node id, private ips, port 26656>
+addr_book_strict = false
+unconditional-peer-ids (optional) = <list of sentry node ids>
+```
+
+To get a node id, type:
+
+```bash
+oraid tendermint show-node-id
+```
+
+Example:
+
+```bash
+# change addr_book_strict to false
+sed -i 's/addr_book_strict *= *.*/addr_book_strict = false/g' .oraid/config/config.toml
+# --p2p.unconditional-peer-ids (optional)
+oraivisor start --p2p.pex false \
+  --p2p.persistent_peers "014b6fa1fd8d14fa7e08c353497baa1f5581a089@1.2.3.4:26656,bc806159212529879b42c737c2338042e396b1dd@2.3.4.5:26656" \
+  --p2p.unconditional-peer-ids "014b6fa1fd8d14fa7e08c353497baa1f5581a089,bc806159212529879b42c737c2338042e396b1dd"
+```
+
+### 2. Sentry node configuration
+
+```bash
+pex = true
+unconditional-peer-ids = <validator node id>
+persistent_peers = <validator nodes, optionally other sentry nodes>
+private_peer_ids = <validator node ids>
+addr_book_strict = false
+external_address = <your-public-address. Eg: tcp://1.2.3.4:26656>
+when starting, set flag --rpc.laddr tcp://0.0.0.0:26657
+```
+
+Example:
+
+```bash
+# change addr_book_strict to false
+sed -i 's/addr_book_strict *= *.*/addr_book_strict = false/g' .oraid/config/config.toml
+# update your external_address
+public_ip=1.2.3.4
+sed -i 's/external_address *= *".*"/external_address = "tcp:\/\/'$public_ip':26656"/g' .oraid/config/config.toml
+# --p2p.unconditional-peer-ids (optional)
+oraivisor start --p2p.pex true --rpc.laddr tcp://0.0.0.0:26657 \
+  --p2p.persistent_peers "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc@5.6.7.8:26656" \
+  --p2p.unconditional-peer-ids "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc" \
+  --p2p.private_peer_ids "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc"
+```
+
+You should also set up firewalls for your genesis nodes.
+
+## Start the network
+
+Please exit the container and follow the below steps to start the nodes
+
+### 1. Start the trusted node
+
+```bash
+docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start'
+```
+
+or if you want to use flags instead:
+
+```bash
+docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --p2p.pex false --p2p.persistent_peers "<node-id1>@<private-ip1>:26656,<node-id2>@<private-ip2>:26656"'
+```
+
+The above commands run as the background process. You can always run them in the foreground process by removing the "-d" flag
+
+### 2. Start the sentry nodes (optional if you have such nodes)
+
+```bash
+docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --rpc.laddr tcp://0.0.0.0:26657'
+```
+
+or:
+
+```bash
+docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --rpc.laddr tcp://0.0.0.0:26657 --p2p.pex false --p2p.persistent_peers "<node-id1>@<private-ip1>:26656,<node-id2>@<private-ip2>:26656" --p2p.unconditional_peer_ids "<id1>,<id2>,<id3>" --p2p.private_peer_ids "<id1>,<id2>,<id3>"'
+```
+
+### 3. Wait for the team to distribute tokens to your wallet
+
+Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your wallet information. Please wait until you receive tokens as well as the **catching up** status to **false** to continue
+
+### 4. Create validator transaction
+
+```bash
+docker-compose exec -d orai bash -c 'fn createValidator'
+```
+
+## Check your node status with voting power
+
+Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your node status through:
+
+```bash
+oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up, voting_power: .ValidatorInfo.VotingPower}'
+```
+
+If you see that your VotingPower is greater than 0, and the catching_up is false, then congratulations, you are a validator now!
+
+## Tips
+
+You should monitor your nodes frequently. Make sure it has the correct tendermint public key to vote. To check, you should take a look at your **tendermint public key** in the **ValidatorInfo** attribute after typing:
+
+```bash
+oraid status
+```
+
+Please compare the **tendermint public key** to the one when you type:
+
+```bash
+oraid query staking validator <operator address>
+```
+
+If they match, then your node is still running fine. If not, then you should remove the **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json** files, replace them with your backup files and restart the node.
