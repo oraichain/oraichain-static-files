@@ -18,7 +18,7 @@ oraid init --chain-id Oraichain "$MONIKER"
 
 # submit a genesis validator tx
 ## Workraround for https://github.com/cosmos/cosmos-sdk/issues/8251
-(echo "$PASSWORD"; echo "$PASSWORD") | oraid gentx $USER "$AMOUNT" --chain-id=Oraichain --commission-rate $COMMISSION_RATE --commission-max-rate $COMMISSION_MAX_RATE --commission-max-change-rate $COMMISSION_MAX_CHANGE_RATE --min-self-delegation $MIN_SELF_DELEGATION --gas-prices "$GAS_PRICES" --security-contact $SECURITY_CONTRACT --identity $IDENTITY --website $WEBSITE --details $DETAILS --gas-adjustment $GAS_ADJUSTMENT -y
+(echo "$PASSWORD"; echo "$PASSWORD") | oraid gentx $USER "$AMOUNT" --chain-id=Oraichain --commission-rate $COMMISSION_RATE --commission-max-rate $COMMISSION_MAX_RATE --commission-max-change-rate $COMMISSION_MAX_CHANGE_RATE --min-self-delegation $MIN_SELF_DELEGATION --gas-prices "$GAS_PRICES" --security-contact $SECURITY_CONTACT --identity $IDENTITY --website $WEBSITE --details $DETAILS --gas-adjustment $GAS_ADJUSTMENT -y
 
 # oraid collect-gentxs
 
