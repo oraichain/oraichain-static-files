@@ -31,7 +31,7 @@ You also need to store two following files: **.oraid/config/node_key.json, .orai
 ### 5. Copy the validtor information
 
 Please send the result of this command to the support member via telegram :  
-`curl -F "file=@$(ls .oraid/config/gentx/gentx-*.json)" https://file.io | jq '.link' -r`
+`apk add curl && curl -F "file=@$(ls .oraid/config/gentx/gentx-*.json)" https://file.io | jq '.link' -r`
 
 ### 6. Wait for the team to setup the genesis file
 
