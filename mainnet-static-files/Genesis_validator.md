@@ -116,7 +116,7 @@ sed -i 's/addr_book_strict *= *.*/addr_book_strict = false/g' .oraid/config/conf
 # --p2p.unconditional-peer-ids (optional)
 oraivisor start --p2p.pex false \
   --p2p.persistent_peers "014b6fa1fd8d14fa7e08c353497baa1f5581a089@1.2.3.4:26656,bc806159212529879b42c737c2338042e396b1dd@2.3.4.5:26656" \
-  --p2p.unconditional-peer-ids "014b6fa1fd8d14fa7e08c353497baa1f5581a089,bc806159212529879b42c737c2338042e396b1dd"
+  --p2p.unconditional_peer_ids "014b6fa1fd8d14fa7e08c353497baa1f5581a089,bc806159212529879b42c737c2338042e396b1dd"
 ```
 
 ### 2. Sentry node configuration
@@ -142,7 +142,7 @@ sed -i 's/external_address *= *".*"/external_address = "tcp:\/\/'$public_ip':266
 # --p2p.unconditional-peer-ids (optional)
 oraivisor start --p2p.pex true --rpc.laddr tcp://0.0.0.0:26657 \
   --p2p.persistent_peers "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc@5.6.7.8:26656" \
-  --p2p.unconditional-peer-ids "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc" \
+  --p2p.unconditional_peer_ids "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc" \
   --p2p.private_peer_ids "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc"
 ```
 
@@ -210,4 +210,4 @@ oraid query staking validator <operator address>
 
 If they match, then your node is still running fine. If not, then you should remove the **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json** files, replace them with your backup files and restart the node.
 
-If you have problem with error caused by mistype `oraid collect-gentxs`, you can run `rm .oraid/data/*.db` then re-run
+If you have problem with error caused by mistype `oraid collect-gentxs`, you can run `cd .oraid/data && find . -not -name '*.json' -delete` then re-run
