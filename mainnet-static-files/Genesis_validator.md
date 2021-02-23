@@ -209,3 +209,5 @@ oraid query staking validator <operator address>
 ```
 
 If they match, then your node is still running fine. If not, then you should remove the **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json** files, replace them with your backup files and restart the node.
+
+If you have problem with error caused by mistype `oraid collect-gentxs`, you can run `rm .oraid/data/*.db` then re-run

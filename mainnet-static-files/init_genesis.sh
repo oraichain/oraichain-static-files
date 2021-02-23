@@ -18,10 +18,10 @@ oraid init --chain-id Oraichain "$MONIKER"
 
 # submit a genesis validator tx
 ## Workraround for https://github.com/cosmos/cosmos-sdk/issues/8251
-(echo "$PASSWORD"; echo "$PASSWORD") | oraid gentx $USER "$AMOUNT" --chain-id=Oraichain --amount="$AMOUNT" -y
+(echo "$PASSWORD"; echo "$PASSWORD") | oraid gentx $USER "$AMOUNT" --chain-id=Oraichain -y
 
-oraid collect-gentxs
+# oraid collect-gentxs
 
-oraid validate-genesis
+# oraid validate-genesis
 
 echo "The genesis initiation process has finished ..."
