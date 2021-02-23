@@ -15,7 +15,7 @@ Since we are genesis validators, we need to expose nodes with public ip addresse
 ### 3. Build and enter the container
 
 ```bash
-sudo chmod +x init_genesis.sh && mv docker-compose.genesis.yml docker-compose.yml && docker-compose pull && docker-compose up -d && docker-compose exec orai bash
+sudo chmod +x init_genesis.sh && mv docker-compose.genesis.yml docker-compose.yml && docker-compose pull && docker-compose up -d --force-recreate && docker-compose exec orai bash
 ```
 
 ### 4. Type the following command to initiate your genesis node
