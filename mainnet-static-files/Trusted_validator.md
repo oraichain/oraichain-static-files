@@ -1,4 +1,4 @@
-# Tutorial to participate in the genesis phase
+# Tutorial to participate in the Oraichain mainnet
 
 ## Setup the trusted validator node
 
@@ -28,10 +28,6 @@ You need to store two following files: **.oraid/config/node_key.json, .oraid/con
 
 This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture
 
-### Note
-
-If you prefer your custom architecture, then you can skip this section and the [Setup the sentry architecture](#setup-the-sentry-architecture) section. Instead, you only need to provide public ip addresses and node ids that other nodes can connect to. Remember to expose at least two ports: **26656 and 26657**
-
 To get a node id, type:
 
 ```bash
@@ -41,7 +37,7 @@ oraid tendermint show-node-id
 ### 1. Download the docker-compose file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml && touch orai.env
 ```
 
 ### 2. Enter the container
@@ -128,9 +124,13 @@ You should also set up firewalls for your genesis nodes.
 
 ## Start the network
 
+As a validator, you shoud provide public ip addresses and node ids of your sentry nodes your that other nodes can connect to. You can expose your validator node directly, or you can use sentry nodes. Remember to expose at least two ports: **26656 and 26657**
+
 Please exit the container and follow the below steps to start the nodes
 
 ### 1. Start the trusted node
+
+If you do not specify the flags, you must add at least a persistent peer connection in the **.oraid/config/config.toml** file before running the below command
 
 ```bash
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start'
@@ -162,8 +162,10 @@ Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-te
 
 ### 4. Create validator transaction
 
+please enter the container and type:
+
 ```bash
-docker-compose exec -d orai bash -c 'fn createValidator'
+fn createValidator
 ```
 
 ## Check your node status with voting power

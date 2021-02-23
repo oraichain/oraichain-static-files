@@ -5,7 +5,7 @@
 ### 1. Run the genesis setup file
 
 ```bash
-curl https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh | sh
+curl https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup_genesis.sh | sh
 ```
 
 ### 2. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
@@ -47,11 +47,7 @@ After downloading, please check if it contains your account and validator inform
 
 ## Setup your sentry nodes
 
-This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture.
-
-### Note
-
-If you prefer your custom architecture, then you can skip this section and the [Setup the sentry architecture](#setup-the-sentry-architecture) section. Instead, you only need to provide public ip addresses and node ids that other nodes can connect to. Remember to expose at least two ports: **26656 and 26657**
+This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture. Otherwise, if you only want to run a simple genesis node, please move to the section [Start the network](#start-the-network).
 
 To get a node id, type:
 
@@ -62,7 +58,7 @@ oraid tendermint show-node-id
 ### 1. Download the docker-compose file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml && touch orai.env
 ```
 
 ### 2. Enter the container
@@ -154,6 +150,8 @@ You should also set up firewalls for your genesis nodes.
 
 ## Start the network
 
+As a validator, you shoud provide public ip addresses and node ids of your sentry nodes your that other nodes can connect to. You can expose your validator node directly, or you can use sentry nodes. Remember to expose at least two ports: **26656 and 26657**
+
 Please exit the container and follow the below steps to start the nodes
 
 ### 1. Connect your nodes to other genesis nodes
@@ -161,6 +159,8 @@ Please exit the container and follow the below steps to start the nodes
 The Oraichain team will also provide some public ip addresses for others as a starting point. You can check the genesis.json file, at the **website** part to look for our addresses. You should add them in the config.toml file, in the pair **persistent_peers** or through the flags to connect with us.
 
 ### 2. Start the genesis node
+
+If you do not specify the flags, you must add at least a persistent peer connection in the **.oraid/config/config.toml** file before running the below command
 
 ```bash
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start'
