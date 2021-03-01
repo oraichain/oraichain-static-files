@@ -16,11 +16,13 @@ curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/mast
 docker-compose pull && docker-compose up -d --force-recreate
 ```
 
-### 5. Type the following command to initiate your trusted node
+### 4. Type the following command to initiate your trusted node
 
 ```bash
-docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/fn.sh && chmod +x /usr/bin/fn' && docker-compose exec orai fn init
+docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn' && docker-compose exec orai fn init
 ```
+
+After running, there will be an account.txt file generated, which stores your account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account information.
 
 You need to store two following files: **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json**. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
 
