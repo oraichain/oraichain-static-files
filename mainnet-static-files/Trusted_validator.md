@@ -76,7 +76,7 @@ You also need to prepare your own VPC network beforehand.
 pex = false
 persistent_peers = <list of sentry nodes with node id, private ips, port 26656>
 addr_book_strict = false
-unconditional-peer-ids (optional) = <list of sentry node ids>
+unconditional_peer_ids (optional) = <list of sentry node ids>
 ```
 
 To get a node id, type:
@@ -93,14 +93,14 @@ Example:
 pex = false
 persistent_peers = "014b6fa1fd8d14fa7e08c353497baa1f5581a089@1.2.3.4:26656,bc806159212529879b42c737c2338042e396b1dd@2.3.4.5:26656"
 addr_book_strict = false
-unconditional-peer-ids (optional) = "014b6fa1fd8d14fa7e08c353497baa1f5581a089,bc806159212529879b42c737c2338042e396b1dd"
+unconditional_peer_ids (optional) = "014b6fa1fd8d14fa7e08c353497baa1f5581a089,bc806159212529879b42c737c2338042e396b1dd"
 ```
 
 ### 2. Sentry node configuration
 
 ```bash
 pex = true
-unconditional-peer-ids = <validator node id>
+unconditional_peer_ids = <validator node id>
 persistent_peers = <validator nodes, optionally other sentry nodes>
 private_peer_ids = <validator node ids>
 addr_book_strict = false
@@ -112,7 +112,7 @@ Example:
 
 ```bash
 pex = true
-unconditional-peer-ids = "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc"
+unconditional_peer_ids = "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc"
 persistent_peers = "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc@5.6.7.8:26656"
 private_peer_ids = "cc433de0f3d7e8e125ca40396e7cedb12a5d68bc"
 addr_book_strict = false
