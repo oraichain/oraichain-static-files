@@ -64,7 +64,7 @@ curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/mast
 ### 2. Enter the container
 
 ```bash
-docker-compose pull && docker-compose up -d && docker-compose exec orai bash
+docker-compose up -d --force-recreate && docker-compose exec orai bash
 ```
 
 ### 3. Initiate the node so it has necessary configuration files
