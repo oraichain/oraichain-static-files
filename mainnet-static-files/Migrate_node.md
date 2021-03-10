@@ -6,7 +6,7 @@ You should back up all the node information before migrating to recover if somet
 
 ## 2. Create a new node
 
-To start migrating, you can create a new node to initialize all the configuration files needed. For more information relating to creating a new node, you can follow the sentry node creation tutorial [here](./Genesis_validator.md#Setup-your-sentry-nodes) from step 1 to step 4.
+To start migrating, you can create a new node to initialize all the configuration files needed. For more information relating to creating a new node, you can follow the sentry node creation tutorial [here](./Genesis_validator.md#Setup-your-sentry-nodes) from step 1 to step 4. You can use the same moniker as the current node's
 
 ## 3. Start your new node with appropriate persistent connection to an existing node in the network
 
@@ -41,12 +41,20 @@ docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor st
 enter the container and type:
 
 ```bash
-oraid status
+oraid status && oraid tendermint show-node-id
 ```
 
-if the voting power matches the node you have just migrated from, then congratuations, you have finished the migration process. If not, don't worry. Please check if you have copied everything right and restart again. A common mistake is to not stop the current node before restarting the new node.
+if the voting power matches the node you have just migrated from, and the node id matches the current node, then congratuations, you have finished the migration process. If not, don't worry. Please check if you have copied everything right and restart again. A common mistake is to not stop the current node before restarting the new node. Another common mistake is to copy the files to the new node before syncing, as it may cause your new node unable to sync. It is because other nodes will reject connections coming from the same node id that they have been persistently connecting to.
 
 Your current node will not be affected during the process. If you want, you can always stop the new node and then start the current node again without any interruptions.
+
+You can import your wallet to the new node after the migration process has finished. Type:
+
+```bash
+oraid keys add <wallet name> --recover
+```
+
+Or you can just use the explorer for simplicity.
 
 
 **Happy validating!**
