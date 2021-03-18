@@ -195,3 +195,18 @@ oraid query staking validator <operator address>
 ```
 
 If they match, then your node is still running fine. If not, then you should remove the **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json** files, replace them with your backup files and restart the node.
+
+## List of genesis and trusted sentry nodes that you can connect to
+
+```bash
+9749da4a81526266d7b8fe9a03d260cd3db241ad@3.139.240.126:26656
+59d49e39d507bb190e746bcf5590d65879c132e2@13.79.247.74:26656
+beb464fbad7b89ed238a9c7190f481c3981c1a63@13.94.107.13:26656
+e74ad77d3502bd376b92dd106b2bb8f83fd29a39@35.242.253.96:26656
+6fd43546fda3a54f51ee4b6f5e29466a49c85e33@45.76.9.180:26656
+6709868c14eeeeda0053b237d310b46987ccad90@149.28.36.149:26656
+d5ad47ffdea7ef35f27740c11d3dd565b193dcbf@161.97.102.0:26656
+da47e4cafe7a2dfe235d493cdd691f49d328877c@35.236.177.236:26656
+c64bbecaa4a61f6bbb1512162b736254494f35f9@23.100.40.156:26656
+5ad3b29bf56b9ba95c67f282aa281b6f0903e921@64.225.53.108:26656
+```
