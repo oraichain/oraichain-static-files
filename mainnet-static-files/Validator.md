@@ -1,8 +1,8 @@
 # Tutorial to participate in the Oraichain mainnet
 
-## Setup the trusted validator node
+## Setup the validator node
 
-### 1. Download and run the trusted setup file
+### 1. Download and run the setup file
 
 ```bash
 curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh && chmod +x ./setup.sh && ./setup.sh
@@ -16,7 +16,7 @@ curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/mast
 docker-compose pull && docker-compose up -d --force-recreate
 ```
 
-### 4. Type the following command to initiate your trusted node
+### 4. Type the following command to initiate your node
 
 ```bash
 docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn' && docker-compose exec orai fn init
@@ -130,7 +130,7 @@ As a validator, you shoud provide public ip addresses and node ids of your sentr
 
 Please exit the container and follow the below steps to start the nodes
 
-### 1. Start the trusted node
+### 1. Start the node
 
 If you do not specify the flags, you must add at least a persistent peer connection in the **.oraid/config/config.toml** file before running the below command
 
