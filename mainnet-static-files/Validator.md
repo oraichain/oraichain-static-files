@@ -158,9 +158,9 @@ or:
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --rpc.laddr tcp://0.0.0.0:26657 --p2p.pex false --p2p.persistent_peers "<node-id1>@<private-ip1>:26656,<node-id2>@<private-ip2>:26656" --p2p.unconditional_peer_ids "<id1>,<id2>,<id3>" --p2p.private_peer_ids "<id1>,<id2>,<id3>"'
 ```
 
-### 3. Wait for the team to distribute tokens to your wallet
+### 3. Wait until your wallet has some tokens to spend
 
-Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your wallet information. Please wait until you receive tokens as well as the **catching up** status to **false** to continue
+Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your wallet information by typing: ```oraid query auth account <your-wallet-address>``` or through the explorer, where you import your wallet. When your wallet has some tokens, please wait until your node is fully synchronized by typing: ```oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up}'```. If the **catching up** status is **false**, you can continue.
 
 ### 4. Create validator transaction
 
