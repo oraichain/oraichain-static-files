@@ -1,8 +1,8 @@
 # Tutorial to participate in the Oraichain mainnet
 
-## Setup the trusted validator node
+## Setup the validator node
 
-### 1. Download and run the trusted setup file
+### 1. Download and run the setup file
 
 ```bash
 curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh && chmod +x ./setup.sh && ./setup.sh
@@ -16,7 +16,7 @@ curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/mast
 docker-compose pull && docker-compose up -d --force-recreate
 ```
 
-### 4. Type the following command to initiate your trusted node
+### 4. Type the following command to initiate your node
 
 ```bash
 docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn' && docker-compose exec orai fn init
@@ -130,7 +130,7 @@ As a validator, you shoud provide public ip addresses and node ids of your sentr
 
 Please exit the container and follow the below steps to start the nodes
 
-### 1. Start the trusted node
+### 1. Start the node
 
 If you do not specify the flags, you must add at least a persistent peer connection in the **.oraid/config/config.toml** file before running the below command
 
@@ -158,9 +158,9 @@ or:
 docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --rpc.laddr tcp://0.0.0.0:26657 --p2p.pex false --p2p.persistent_peers "<node-id1>@<private-ip1>:26656,<node-id2>@<private-ip2>:26656" --p2p.unconditional_peer_ids "<id1>,<id2>,<id3>" --p2p.private_peer_ids "<id1>,<id2>,<id3>"'
 ```
 
-### 3. Wait for the team to distribute tokens to your wallet
+### 3. Wait until your wallet has some tokens to spend
 
-Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your wallet information. Please wait until you receive tokens as well as the **catching up** status to **false** to continue
+Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your wallet information by typing: ```oraid query auth account <your-wallet-address>``` or through the explorer, where you import your wallet. When your wallet has some tokens, please wait until your node is fully synchronized by typing: ```oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up}'```. If the **catching up** status is **false**, you can continue.
 
 ### 4. Create validator transaction
 
@@ -195,3 +195,18 @@ oraid query staking validator <operator address>
 ```
 
 If they match, then your node is still running fine. If not, then you should remove the **.oraid/config/node_key.json, .oraid/config/priv_validator_key.json** files, replace them with your backup files and restart the node.
+
+## List of genesis and trusted sentry nodes that you can connect to
+
+```bash
+9749da4a81526266d7b8fe9a03d260cd3db241ad@3.139.240.126:26656
+59d49e39d507bb190e746bcf5590d65879c132e2@13.79.247.74:26656
+beb464fbad7b89ed238a9c7190f481c3981c1a63@13.94.107.13:26656
+e74ad77d3502bd376b92dd106b2bb8f83fd29a39@35.242.253.96:26656
+6fd43546fda3a54f51ee4b6f5e29466a49c85e33@207.246.74.254:26656
+6709868c14eeeeda0053b237d310b46987ccad90@144.202.35.210:26656
+d5ad47ffdea7ef35f27740c11d3dd565b193dcbf@161.97.102.0:26656
+da47e4cafe7a2dfe235d493cdd691f49d328877c@35.236.177.236:26656
+c64bbecaa4a61f6bbb1512162b736254494f35f9@23.100.40.156:26656
+5ad3b29bf56b9ba95c67f282aa281b6f0903e921@64.225.53.108:26656
+```

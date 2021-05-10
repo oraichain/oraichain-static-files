@@ -285,7 +285,7 @@ createValidatorFn() {
   requirePass
   sleep 5
 
-  (echo "$PASS"; echo "$PASS") | oraid tx staking create-validator --amount $amount --pubkey $pubkey --moniker $moniker --chain-id Oraichain --commission-rate $commissionRate --commission-max-rate $commissionMaxRate --commission-max-change-rate $commissionMaxChangeRate --min-self-delegation $minDelegation --gas $gas --gas-prices $gasPrices --security-contact $securityContact --identity $identity --website $website --details $details --from $user -y
+  (echo "$PASS"; echo "$PASS") | oraid tx staking create-validator --amount $amount --pubkey $pubkey --moniker $moniker --chain-id $CHAIN_ID --commission-rate $commissionRate --commission-max-rate $commissionMaxRate --commission-max-change-rate $commissionMaxChangeRate --min-self-delegation $minDelegation --gas $gas --gas-prices $gasPrices --security-contact $securityContact --identity $identity --website $website --details $details --from $user -y
 }
 
 USER=$(getArgument "user" $USER)

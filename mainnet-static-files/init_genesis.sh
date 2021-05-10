@@ -6,10 +6,11 @@ read -s PASSWORD
 
 USER=${USER:-tupt}
 MONIKER=${MONIKER:-node001}
+CHAIN_ID=${CHAIN_ID:-Oraichain}
 
 rm -rf "$PWD"/.oraid
 
-oraid init --chain-id Oraichain "$MONIKER"
+oraid init --chain-id $CHAIN_ID "$MONIKER"
 
 (echo "$PASSWORD"; echo "$PASSWORD") | oraid keys add $USER 2>&1 | tee account.txt
 
@@ -18,7 +19,7 @@ oraid init --chain-id Oraichain "$MONIKER"
 
 # submit a genesis validator tx
 ## Workraround for https://github.com/cosmos/cosmos-sdk/issues/8251
-(echo "$PASSWORD"; echo "$PASSWORD") | oraid gentx $USER "$AMOUNT" --chain-id=Oraichain --commission-rate "$COMMISSION_RATE" --commission-max-rate "$COMMISSION_MAX_RATE" --commission-max-change-rate "$COMMISSION_MAX_CHANGE_RATE" --min-self-delegation "$MIN_SELF_DELEGATION" --gas-prices "$GAS_PRICES" --security-contact "$SECURITY_CONTACT" --identity "$IDENTITY" --website "$WEBSITE" --details "$DETAILS" --gas-adjustment $GAS_ADJUSTMENT -y
+(echo "$PASSWORD"; echo "$PASSWORD") | oraid gentx $USER "$AMOUNT" --chain-id=$CHAIN_ID --commission-rate "$COMMISSION_RATE" --commission-max-rate "$COMMISSION_MAX_RATE" --commission-max-change-rate "$COMMISSION_MAX_CHANGE_RATE" --min-self-delegation "$MIN_SELF_DELEGATION" --gas-prices "$GAS_PRICES" --security-contact "$SECURITY_CONTACT" --identity "$IDENTITY" --website "$WEBSITE" --details "$DETAILS" --gas-adjustment $GAS_ADJUSTMENT -y
 
 # oraid collect-gentxs
 
