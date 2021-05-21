@@ -48,7 +48,7 @@ sudo rm -rf <path-to-.oraid-dir>/.oraid && sudo cp -r $PWD/snapshot/.oraid <path
 
 ## 4. Replace your node information back to the newly updated .oraid/ directory
 
-This step requires you to update the content of the two files: node_key.json & priv_validator_key.json. You also need to import your wallet by typing the following inside your container:
+This step requires you to update the content of the two files: node_key.json & priv_validator_key.json (these two files must be added in the .oraid/config/ directory). You also need to import your wallet by typing the following inside your container:
 
 ```bash
 oraid keys add <wallet-name> --recover
