@@ -28,8 +28,16 @@ mkdir $PWD/snapshot && cd snapshot && wget -O ./docker-compose.yml https://raw.g
 
 ## 2. Copy the snapshot directory from the container to the host
 
+Enter the container using the following command:
+
 ```bash
-sudo docker exec -it orai_snapshot sh && cp -r /root/snapshot/ /snapshot
+sudo docker-compose up -d --force-recreate && sudo docker exec -it orai_snapshot sh
+```
+
+Next, copy the snapshot directory:
+
+```bash
+cp -r /root/snapshot/ /snapshot
 ```
 
 ## 3. Replace your .oraid/ directory with the snapshot you just copied
