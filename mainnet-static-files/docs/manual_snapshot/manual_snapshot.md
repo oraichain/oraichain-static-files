@@ -2,7 +2,7 @@
 
 Before following the below steps, please back up your necessary information in two files: node_key.json and priv_validator_key.json.
 
-Also, this tutorial is for those forgetting to take snapshots of your local node, and the only option is to reset and synchronize with the network from the start. We provide a snapshot, which is updated periodically, from our node through a docker image. Please note that once you use our snapshot, it is automatic that your node will have the same blocks and transactions as ours, so think thoroughly before doing so. We recommend you take snapshots (copying the .oraid/ directory) frequently instead.
+Also, this tutorial is for those forgetting to take snapshots of your local node, and the only option is to reset and synchronize with the network from the start. It also does not handle binary upgrades, so if your node also lost upgraded binaries (please located in /root/oraivisor/upgrades/. If the directory does not exist, it means that your node has also lost the binaries, and you should not follow this tutorial). We provide a snapshot, which is updated periodically, from our node through a docker image. Please note that once you use our snapshot, it is automatic that your node will have the same blocks and transactions as ours, so think thoroughly before doing so. We recommend you take snapshots (copying the .oraid/ directory) frequently instead.
 
 However, if your node needs to recover fast because it is a validator node, and it is getting slashed due to downtime, then the following quick steps may be your savior.
 
@@ -64,10 +64,12 @@ If it is correct, then congratulations, you have successfully recovered your nod
 
 ### BONUS
 
-To fully reset your node and start over, please type the following command:
+To fully reset your node and start over with automatic binary upgrade handling, please type the following command:
 
 ```bash
 oraid unsafe-reset-all && pkill oraid && unlink /root/oraivisor/current && ln -s /root/oraivisor/genesis /root/oraivisor/current && rm -rf /root/oraivisor/upgrades && rm .oraid/wasm/wasm/wasm/* .oraid/wasm/wasm/modules/v1/* && rm .oraid/config/write-*
 ```
+
+The following command will remove all the necessary files to allow your node to synchronize with the network from the beginning without any errors. This is the best way to do if you have time.
 
 Cheers, and happy validating!
