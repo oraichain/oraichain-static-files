@@ -1,6 +1,6 @@
 # Tutorial to manually recover your node using Docker
 
-Before following the below steps, please back up your necessary information in two files: node_key.json and priv_validator_key.json.
+Before following the below steps, please back up your necessary information in two files: node_key.json and priv_validator_key.json. You should store your wallet's mnemonic too.
 
 Also, this tutorial is for those forgetting to take snapshots of your local node, and the only option is to reset and synchronize with the network from the start. It also does not handle binary upgrades, so if your node also lost upgraded binaries (please located in /root/oraivisor/upgrades/. If the directory does not exist, it means that your node has also lost the binaries, and you should not follow this tutorial). We provide a snapshot, which is updated periodically, from our node through a docker image. Please note that once you use our snapshot, it is automatic that your node will have the same blocks and transactions as ours, so think thoroughly before doing so. We recommend you take snapshots (copying the .oraid/ directory) frequently instead.
 
@@ -48,7 +48,11 @@ sudo rm -rf <path-to-.oraid-dir>/.oraid && sudo cp -r $PWD/snapshot/.oraid <path
 
 ## 4. Replace your node information back to the newly updated .oraid/ directory
 
-This step requires you to update the content of the two files: node_key.json & priv_validator_key.json to finish the process.
+This step requires you to update the content of the two files: node_key.json & priv_validator_key.json. You also need to import your wallet by typing the following inside your container:
+
+```bash
+oraid keys add <wallet-name> --recover
+```
 
 ## 5. Restart your node
 
