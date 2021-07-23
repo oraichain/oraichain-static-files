@@ -58,3 +58,5 @@ Type ```byobu``` to enter the byobu terminal. Finally, you can follow [section 3
 You can edit the ```WEBSOCKET_URL``` and ```URL``` values corresponding to your node if you think that the team nodes are too slow when processing the AI requests.
 
 You can edit the ```GAS``` and ```TX_FEES``` to control the gas limit and number of tokens you expect to spend for the reports.
+
+### THANK YOU SO MUCH FOR YOUR CONTRIBUTION!
