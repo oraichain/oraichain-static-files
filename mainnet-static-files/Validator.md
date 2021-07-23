@@ -199,7 +199,7 @@ If they match, then your node is still running fine. If not, then you should rem
 ## List of genesis and trusted sentry nodes that you can connect to
 
 ```bash
-9749da4a81526266d7b8fe9a03d260cd3db241ad@3.139.240.126:26656
+9749da4a81526266d7b8fe9a03d260cd3db241ad@3.129.70.121:26656
 59d49e39d507bb190e746bcf5590d65879c132e2@13.79.247.74:26656
 beb464fbad7b89ed238a9c7190f481c3981c1a63@13.94.107.13:26656
 e74ad77d3502bd376b92dd106b2bb8f83fd29a39@35.242.253.96:26656
