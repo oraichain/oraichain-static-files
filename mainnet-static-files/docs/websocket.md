@@ -31,7 +31,11 @@ where you will need to fill in the ```ENCRYPTED_PASSWORD``` value with the encry
 For example: 
 ```ENCRYPTED_PASSWORD=U2FsdGVkX1/9CxMN06sTmNsBrGSf20PSaA+WuDDNu+8ez2FyNpaJSfSOFZn8Y4FYUQzJsjIrD5duMpABvBS1jc8qpaJEEMM9O0IQrQpcnrNQHfjJfHtMQI4Gi/H+1XaY4G9eKwxO0MmhL+SKTw/mQmD7k01dE5BITuhCVoYF6RjX0V+0B7eCkzWIogYgztcr2tdh+JJhdUKSAFt8L7KWWxBYw2ZOJDb6wZf03jBUH5s=```
 
-Please use the following command to create the file: ```nano .env``` and copy the content of the file there. The ```env``` file should be created in the same directory as the ```oracle_runner``` binary.
+Please use the following command to create the file: 
+
+```nano .env```
+
+and copy the content of the file there. The ```env``` file should be created in the same directory as the ```oracle_runner``` binary.
 
 An important note is that you must use the **validator wallet account** to run the binary. Otherwise, you will not be able to create and broadcast AI request reports. 
 
@@ -51,7 +55,11 @@ Afterward, the websocket will listen to the node specified in the environment fi
 
 Because the websocket binary needs to run continuously to serve the AI requests, it is recommended to use ```byobu``` as a way to keep the websocket running.
 
-Type ```byobu``` to enter the byobu terminal. Finally, you can follow [section 3](#3-run-the-binary) to run the binary.
+Type:
+
+```byobu```
+
+to enter the byobu terminal. Finally, you can follow [section 3](#3-run-the-binary) to run the binary.
 
 ## Notes on the environment file.
 
