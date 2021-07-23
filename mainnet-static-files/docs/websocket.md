@@ -1,6 +1,6 @@
 # Tutorial to run the websocket binary.
 
-Below are the steps to start listening and executing AI request. You are free to use any node you like to run this binary.
+This tutorial is meant for the validators running on the [Oraichain mainnet](https://scan.orai.io). Full nodes will not be able to broadcast AI reports since they have no validator accounts. Below are the steps to start listening and executing AI request. You are free to use any node you like to run this binary.
 
 ## 1. Download the binary.
 
