@@ -61,6 +61,12 @@ Type:
 
 to enter the byobu terminal. Finally, you can follow [section 3](#3-run-the-binary) to run the binary.
 
+Below is a snapshot of a successful set up If there are no errors during the process:
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docs/images/websocket-successful.png?raw=true" alt="Websocket successful set up example"/>
+</p>
+
 ## Notes on the environment file.
 
 You can edit the ```WEBSOCKET_URL``` and ```URL``` values corresponding to your node if you think that the team nodes are too slow when processing the AI requests.
