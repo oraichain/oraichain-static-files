@@ -20,7 +20,7 @@ Please copy it and prepare for the next step.
 
 *) Note that, if you have already signed in, but you do not see your public key. Please kindly sign out and sign in again, then your public key will be displayed.
 
-## 1.2 Submit your public key.
+### 1.2 Submit your public key.
 
 This step requires you to create a **send transaction** to the following address: **orai17n62uccsxaryx3lnwdk4pxxvh09rsdm570zavk**.
 
@@ -44,7 +44,7 @@ curl http://ipfs.io/ipfs/ > vrf_runner && chmod +x vrf_runner
 
 The above command will download a binary and set its name as ```vrf_runner```.
 
-## 2. Create an environment file to run the binary.
+## 3. Create an environment file to run the binary.
 
 The content of the environment file is below:
 
@@ -67,7 +67,7 @@ Please use the following command to create the file:
 
 and copy the content of the file there. The ```env``` file should be created in the same directory as the ```vrf_runner``` binary.
 
-## 3. Run the binary.
+## 4. Run the binary.
 
 In the directory containing the ```vrf_runner``` binary, type:
 
