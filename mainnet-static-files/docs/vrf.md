@@ -90,7 +90,7 @@ Below is an example of a successful phase:
 However, the final executor running the binary will receive a different log, which is shown below as an instance:
 
 <p align="center">
-  <img src="hhttps://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docs/images/first-run-final-successful.png" alt="Send VRF example"/>
+  <img src="https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docs/images/first-run-final-successful.png" alt="Send VRF example"/>
 </p>
 
 After all members have generated and shared their contribution keys, we can move on to the second phase. 
