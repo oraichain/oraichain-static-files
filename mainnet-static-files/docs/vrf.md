@@ -73,11 +73,7 @@ In the directory containing the ```vrf_runner``` binary, please use Terminal and
 
 **For Windows users:**
 
-You should use **Windows Powershell** to run the below command:
-
-```
-$env:NODE_ENV=""; .\vrf_runner.exe
-```
+You can click on the exe file to start running!
 
 ### 3.1 First phase.
 
@@ -117,8 +113,6 @@ to begin contributing!
 
 Type the following in Windows Powershell:
 
-```
-$env:NODE_ENV=""; .\vrf_runner.exe
-```
+You can click on the exe file to start running!
 
 ### THANK YOU SO MUCH FOR YOUR CONTRIBUTION!
