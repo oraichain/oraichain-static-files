@@ -36,15 +36,15 @@ An example is:
 
 Since us, the Oraichain team need your public keys to begin the initialization process, the VRF binary will not be available until we have collected all executors' public keys.
 
-Once the initialization process has finished, please run the following command to download the VRF runner binary (the command will be updated accordingly to the provided binary):
+Once the initialization process has finished, please go to the following link to download the VRF runner binary (the link will be updated accordingly to the provided binary):
 
-```
-curl http://ipfs.io/ipfs/ > vrf_runner && chmod +x vrf_runner
-```
 
-The above command will download a binary and set its name as ```vrf_runner```.
 
-## 3. Create an environment file to run the binary.
+The above link will provide you a zip file containing an environment variable and three binaries for Linux, Windows and MacOS respsectively.
+
+Please extract the env file and the binary that is suitable for your OS. Next, rename the binary file to ```vrf_runner``` (for Windows it should be ```vrf_runner.exe```).
+
+## 3. Update the environment file to run the binary.
 
 The content of the environment file is below:
 
@@ -61,18 +61,22 @@ Meanwhile, ```FEES``` is the transaction fees you spend for your contribution tr
 For example: 
 ```MNEMONIC=foo bar foo bar foo bar foo bar foo bar foo bar ```
 
-Please use the following command to create the file: 
-
-```nano .env```
-
-and copy the content of the file there. The ```env``` file should be created in the same directory as the ```vrf_runner``` binary.
-
 ## 4. Run the binary.
 
-In the directory containing the ```vrf_runner``` binary, type:
+In the directory containing the ```vrf_runner``` binary, please use Terminal and type:
+
+**For Linux and MacOS users:**
 
 ```
 ./vrf_runner
+```
+
+**For Windows users:**
+
+You should use **Windows Powershell** to run the below command:
+
+```
+$env:NODE_ENV=""; .\vrf_runner.exe
 ```
 
 ### 3.1 First phase.
@@ -99,18 +103,22 @@ We will frequently check if all members have shared or not to finish this phase.
 
 ### 3.2 Second phase.
 
-Because the VRF binary needs to run continuously to frequently contribute to the execution and verification of the calculation of random data, it is recommended to use ```byobu``` as a way to keep the binary running.
+**For Linux and MacOS users:**
 
-Type:
-
-```byobu```
-
-to enter the byobu terminal. Finally, type:
+Type the following in Terminal:
 
 ```
 ./vrf_runner
 ```
 
 to begin contributing!
+
+**For Windows users:**
+
+Type the following in Windows Powershell:
+
+```
+$env:NODE_ENV=""; .\vrf_runner.exe
+```
 
 ### THANK YOU SO MUCH FOR YOUR CONTRIBUTION!
