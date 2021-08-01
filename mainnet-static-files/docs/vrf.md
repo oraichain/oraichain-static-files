@@ -89,7 +89,7 @@ In the directory containing the ```vrf_runner``` binary, please use Terminal and
 
 You can click on the exe file to start running!
 
-### 3.1 First phase.
+### 4.1 First phase.
 
 Running the binary for the first time with correct configurations will submit your initial key shares onto the Oraichain sub-network. 
 
@@ -111,7 +111,7 @@ After all members have generated and shared their contribution keys, we can move
 
 We will frequently check if all members have shared or not to finish this phase.
 
-### 3.2 Second phase.
+### 4.2 Second phase.
 
 **For Linux and MacOS users:**
 
