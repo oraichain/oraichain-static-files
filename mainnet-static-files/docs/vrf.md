@@ -38,7 +38,21 @@ Since us, the Oraichain team need your public keys to begin the initialization p
 
 Once the initialization process has finished, please go to the following link to download the VRF runner binary (the link will be updated accordingly to the provided binary):
 
+**For dedicated Linux servers (no GUI)**
 
+Type the following in your Terminal:
+
+```
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1AcczSfKKPPQRfd_K9RZfL3SkKjvfxTSz' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1AcczSfKKPPQRfd_K9RZfL3SkKjvfxTSz" -O vrf_runner.zip && rm -rf /tmp/cookies.txt
+```
+
+**For local machines (Linux, MacOS and Windows)**
+
+Use your favorite browser and go to the below link to download the zip file:
+
+```
+https://drive.google.com/uc?export=download&id=1AcczSfKKPPQRfd_K9RZfL3SkKjvfxTSz
+```
 
 The above link will provide you a zip file containing an environment variable and three binaries for Linux, Windows and MacOS respsectively.
 
