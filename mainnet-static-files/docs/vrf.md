@@ -43,7 +43,7 @@ Once the initialization process has finished, please go to the following link to
 Type the following in your Terminal:
 
 ```
-wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1AcczSfKKPPQRfd_K9RZfL3SkKjvfxTSz' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1AcczSfKKPPQRfd_K9RZfL3SkKjvfxTSz" -O vrf_runner.zip && rm -rf /tmp/cookies.txt
+wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1TSZRqTygYcuwtf8Sti1NEZLqQSbW6Gwf' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1TSZRqTygYcuwtf8Sti1NEZLqQSbW6Gwf" -O vrf_runner.zip && rm -rf /tmp/cookies.txt
 ```
 
 **For local machines (Linux, MacOS and Windows)**
@@ -51,7 +51,7 @@ wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download
 Use your favorite browser and go to the below link to download the zip file:
 
 ```
-https://drive.google.com/uc?export=download&id=1AcczSfKKPPQRfd_K9RZfL3SkKjvfxTSz
+https://drive.google.com/uc?export=download&id=1TSZRqTygYcuwtf8Sti1NEZLqQSbW6Gwf
 ```
 
 The above link will provide you a zip file containing an environment variable and three binaries for Linux, Windows and MacOS respsectively.
