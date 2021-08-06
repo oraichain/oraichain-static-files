@@ -57,7 +57,7 @@ You can check your wallet information by typing: ```oraid query auth account <yo
 fn createValidator
 ```
 
-## Check your node status with voting power
+### 5. Check your node status with voting power
 
 Type the following command to check your voting power:
 
@@ -87,7 +87,7 @@ If they match, then your node is still running fine. If not, then you should rem
 
 This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html). We also show a short demonstration in the section [Setup the sentry architecture](#setup-the-sentry-architecture) on how to setup the sentry architecture
 
-Setting up a fast sync sentry node is the same to that of a validator node but without the step [Create validator transaction]()
+Setting up a fast sync sentry node is the same to that of a validator node but without the steps [4](#4-create-validator-transaction) and [5](#5-create-validator-transaction)
 
 ## Setup the sentry architecture (optional)
 
