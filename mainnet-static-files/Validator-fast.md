@@ -23,10 +23,18 @@ docker-compose pull && docker-compose up -d --force-recreate
 docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn && wget -O .oraid.tar.gz https://orai.s3.us-east-2.amazonaws.com/.oraid.tar.gz && tar -xzvf .oraid.tar.gz'
 ```
 
-### 5. Initiate your validator wallet account & moniker
+### 5. Initiate your validator moniker and wallet
+
+Please enter your container and type:
 
 ```
-sed -i 's/addr_book_strict *= *.*/moniker = "<your-moniker-name-here>"/g' .oraid/config/config.toml && oraid keys add $USER 2>&1 | tee account.txt
+sed -i 's/moniker *= *.*/moniker = "<your-moniker-name-here>"/g' .oraid/config/config.toml && oraid keys add $USER 2>&1 | tee account.txt && exit
+```
+
+where ```<your-moniker-name-here>``` should be replaced by your actual moniker that you want to choose. For example:
+
+```
+sed -i 's/moniker *= *.*/moniker = "test"/g' .oraid/config/config.toml && oraid keys add $USER 2>&1 | tee account.txt && exit
 ```
 
 After running, there will be an account.txt file generated, which stores your account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account information.
