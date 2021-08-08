@@ -28,7 +28,7 @@ docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercont
 Please enter your container and type:
 
 ```
-sed -i 's/moniker *= *.*/moniker = "<your-moniker-name-here>"/g' .oraid/config/config.toml && oraid keys add $USER 2>&1 | tee account.txt && exit
+sed -i "s/moniker *= *.*/moniker = \"$MONIKER\"/g" .oraid/config/config.toml && oraid keys add $USER 2>&1 | tee account.txt && exit
 ```
 
 where ```<your-moniker-name-here>``` should be replaced by your actual moniker that you want to choose. For example:
