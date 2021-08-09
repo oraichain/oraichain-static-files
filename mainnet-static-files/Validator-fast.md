@@ -23,6 +23,16 @@ RAM: 2GB
 Storage: 200GB SSD
 ```
 
+**Estimated cost for a node with minimum requirements using Digital Ocean: $25/month**
+
+<p align="center">
+  <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/228802108_265846171652386_6928115342403148855_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=k52FsbGnSb0AX8E9f3n&_nc_ht=scontent.fhan5-1.fna&oh=1a8389436b635a4a16576a24b341b067&oe=61380788" alt="Public key of an address example"/>
+</p>
+
+<p align="center">
+  <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/228807280_419121109497778_1372075646368448603_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=l3zVG0aCSZAAX8WQMpS&_nc_ht=scontent.fhan5-1.fna&oh=526486c6dc3c35e83051d2a9f1c8c291&oe=61352A8D" alt="Public key of an address example"/>
+</p>
+
 ## Setup the validator node
 
 ### 1. Download and run the setup file
