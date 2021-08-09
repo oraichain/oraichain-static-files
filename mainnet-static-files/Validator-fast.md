@@ -1,6 +1,28 @@
 
 # Tutorial to participate in the Oraichain mainnet
 
+This tutorial helps validators and full nodes quickly synchronize with the Oraichain mainnet by downloading a storage snapshot prepared by the team. The downloading speed is much faster than synchronizing from the first block, which allows fast set up to join the network in no time!
+
+If you want to synchronize your node using the traditional method, please follow [this tutorial](https://github.com/oraichain/oraichain-static-files/blob/master/mainnet-static-files/Validator.md) instead.
+
+## Hardware specifications for an Oraichain node:
+
+**Minimum requirements**
+
+```
+The number of CPUs: 2vCPUs
+RAM: 2GB
+Storage: 100GB SSD
+```
+
+**Recommended requirements**
+
+```
+The number of CPUs: 2vCPUs
+RAM: 2GB
+Storage: 200GB SSD
+```
+
 ## Setup the validator node
 
 ### 1. Download and run the setup file
