@@ -20,6 +20,14 @@ RAM: 2GB
 Storage: 200GB SSD
 ```
 
+<p align="center">
+  <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/228802108_265846171652386_6928115342403148855_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=k52FsbGnSb0AX8E9f3n&_nc_ht=scontent.fhan5-1.fna&oh=1a8389436b635a4a16576a24b341b067&oe=61380788" alt="Public key of an address example"/>
+</p>
+
+<p align="center">
+  <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/228807280_419121109497778_1372075646368448603_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=l3zVG0aCSZAAX8WQMpS&_nc_ht=scontent.fhan5-1.fna&oh=526486c6dc3c35e83051d2a9f1c8c291&oe=61352A8D" alt="Public key of an address example"/>
+</p>
+
 ## Setup the validator node
 
 ### 1. Download and run the setup file
@@ -221,9 +229,9 @@ If they match, then your node is still running fine. If not, then you should rem
 ```bash
 0baa806b3a4dd17be6e06369d899f140c3897d6e@18.223.242.70:26656
 9749da4a81526266d7b8fe9a03d260cd3db241ad@18.116.209.76:26656
-9749da4a81526266d7b8fe9a03d260cd3db241ad@3.129.70.121:26656
+bbe40e44ec02ff284c79de945e0567cfc0a76d5a@35.204.123.166:26656
+8a8c58e5514c86051940b3bbe39db2817de62288@34.79.231.38:26656
 59d49e39d507bb190e746bcf5590d65879c132e2@13.79.247.74:26656
-e74ad77d3502bd376b92dd106b2bb8f83fd29a39@35.242.253.96:26656
 6fd43546fda3a54f51ee4b6f5e29466a49c85e33@207.246.74.254:26656
 d5ad47ffdea7ef35f27740c11d3dd565b193dcbf@161.97.102.0:26656
 5ad3b29bf56b9ba95c67f282aa281b6f0903e921@64.225.53.108:26656
