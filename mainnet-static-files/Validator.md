@@ -1,5 +1,25 @@
 # Tutorial to participate in the Oraichain mainnet
 
+This tutorial allows validators and full nodes synchronize with the Oraichain mainnet from scratch using the traditional synchronization method from Tendermint. If you want a reduce the time syncing, please refer to [this tutorial](https://github.com/oraichain/oraichain-static-files/blob/master/mainnet-static-files/Validator-fast.md).
+
+## Hardware specifications for an Oraichain node:
+
+**Minimum requirements**
+
+```
+The number of CPUs: 2vCPUs
+RAM: 2GB
+Storage: 100GB SSD
+```
+
+**Recommended requirements**
+
+```
+The number of CPUs: 2vCPUs
+RAM: 2GB
+Storage: 200GB SSD
+```
+
 ## Setup the validator node
 
 ### 1. Download and run the setup file
