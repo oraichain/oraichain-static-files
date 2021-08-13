@@ -67,12 +67,6 @@ Please enter your container and type:
 sed -i "s/moniker *= *.*/moniker = \"$MONIKER\"/g" .oraid/config/config.toml && oraid keys add $USER 2>&1 | tee account.txt && exit
 ```
 
-where ```<your-moniker-name-here>``` should be replaced by your actual moniker that you want to choose. For example:
-
-```
-sed -i 's/moniker *= *.*/moniker = "test"/g' .oraid/config/config.toml && oraid keys add $USER 2>&1 | tee account.txt && exit
-```
-
 After running, there will be an account.txt file generated, which stores your account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account information.
 
 ## Start the network
