@@ -7,6 +7,8 @@ If you want to synchronize your node using the traditional method, please follow
 
 ## Hardware specifications for an Oraichain node:
 
+A dedicated node that can run Docker amd64.
+
 **Minimum requirements**
 
 ```
@@ -44,6 +46,8 @@ curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/mast
 ### 2. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
 
 ### 3. Build and enter the container
+
+With docker, your validator can run on any platforms. As a result, it is a must to install and download Docker & docker-compose. Afterward, please type:
 
 ```bash
 docker-compose pull && docker-compose up -d --force-recreate
