@@ -89,6 +89,8 @@ Please wait until your node is fully synchronized by typing: ```oraid status &> 
 
 ### 4. Create validator transaction
 
+You need to store two following files: .oraid/config/node_key.json, .oraid/config/priv_validator_key.json. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
+
 You can check your wallet information by typing: ```oraid query auth account <your-validator-wallet-address>``` inside of the container or through the explorer, where you import your wallet. When your wallet has some tokens, please enter the container and type:
 
 ```bash
