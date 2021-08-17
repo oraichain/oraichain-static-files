@@ -73,10 +73,23 @@ After running, there will be an account.txt file generated, which stores your ac
 
 Please exit the container and follow the below steps to start the nodes
 
+## List of genesis and trusted sentry nodes that you can connect to
+
+```bash
+0baa806b3a4dd17be6e06369d899f140c3897d6e@18.223.242.70:26656
+9749da4a81526266d7b8fe9a03d260cd3db241ad@18.116.209.76:26656
+bbe40e44ec02ff284c79de945e0567cfc0a76d5a@35.204.123.166:26656
+8a8c58e5514c86051940b3bbe39db2817de62288@34.79.231.38:26656
+59d49e39d507bb190e746bcf5590d65879c132e2@13.79.247.74:26656
+6fd43546fda3a54f51ee4b6f5e29466a49c85e33@207.246.74.254:26656
+d5ad47ffdea7ef35f27740c11d3dd565b193dcbf@161.97.102.0:26656
+5ad3b29bf56b9ba95c67f282aa281b6f0903e921@64.225.53.108:26656
+```
+
 ### 1. Start the node
 
 ```bash
-docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --p2p.pex false --p2p.persistent_peers "<node-id1>@<private-ip1>:26656,<node-id2>@<private-ip2>:26656"'
+docker-compose restart orai && docker-compose exec -d orai bash -c 'oraivisor start --p2p.pex false --p2p.persistent_peers "<node-id1>@<pubclic-ip1>:26656,<node-id2>@<public-ip2>:26656"'
 ```
 
 If you do not specify the **--p2p.persistent_peers** flags, you must add at least a persistent peer connection in the **.oraid/config/config.toml** file before running the below command, otherwise your node will not be able to connect to the Oraichain network.
@@ -86,6 +99,12 @@ The above commands run as the background process so when you turn off your Termi
 ### 3. Wait until your node is synchronized
 
 Please wait until your node is fully synchronized by typing: ```oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up}'```. If the **catching up** status is **false**, you can continue.
+
+Once your node is fully synchronized, we can finally remove the **.oraid.tar.gz** file to reduce the disk space used using the following command:
+
+```
+rm .oraid.tar.gz
+```
 
 ### 4. Create validator transaction
 
@@ -190,16 +209,3 @@ when starting: oraivisor start --rpc.laddr tcp://0.0.0.0:26657
 ```
 
 You should also set up firewalls for your genesis nodes.
-
-## List of genesis and trusted sentry nodes that you can connect to
-
-```bash
-0baa806b3a4dd17be6e06369d899f140c3897d6e@18.223.242.70:26656
-9749da4a81526266d7b8fe9a03d260cd3db241ad@18.116.209.76:26656
-bbe40e44ec02ff284c79de945e0567cfc0a76d5a@35.204.123.166:26656
-8a8c58e5514c86051940b3bbe39db2817de62288@34.79.231.38:26656
-59d49e39d507bb190e746bcf5590d65879c132e2@13.79.247.74:26656
-6fd43546fda3a54f51ee4b6f5e29466a49c85e33@207.246.74.254:26656
-d5ad47ffdea7ef35f27740c11d3dd565b193dcbf@161.97.102.0:26656
-5ad3b29bf56b9ba95c67f282aa281b6f0903e921@64.225.53.108:26656
-```
