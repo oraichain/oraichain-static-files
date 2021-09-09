@@ -73,7 +73,7 @@ After running, there will be an account.txt file generated, which stores your ac
 
 Please exit the container and follow the below steps to start the nodes
 
-## List of genesis and trusted sentry nodes that you can connect to
+## List of seed & sentry nodes that you can connect to
 
 ```bash
 0baa806b3a4dd17be6e06369d899f140c3897d6e@18.223.242.70:26656
