@@ -213,3 +213,5 @@ when starting: oraivisor start --rpc.laddr tcp://0.0.0.0:26657
 ```
 
 You should also set up firewalls for your genesis nodes.
+
+Please join the [Oraichain validators group](https://t.me/joinchat/yH9nMLrokQRhZGY1) on Telegram to discuss ideas and problems!
