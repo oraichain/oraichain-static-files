@@ -150,7 +150,7 @@ If they match, then your node is still running fine. If not, then you should rem
 
 This section is optional if you want to follow the sentry architecture. For more information about the sentry architecture, please click [here](https://docs.tendermint.com/master/nodes/validators.html).
 
-Setting up a fast sync sentry node is the same to that of a validator node but without the steps [4](#4-create-validator-transaction) and [5](#5-create-validator-transaction)
+Setting up a fast sync sentry node is the same to that of a validator node but without the steps [4](#4-create-validator-transaction) and [5](#5-check-your-node-status-with-voting-power)
 
 ## Setup the sentry architecture (optional)
 
