@@ -236,3 +236,5 @@ bbe40e44ec02ff284c79de945e0567cfc0a76d5a@35.204.123.166:26656
 d5ad47ffdea7ef35f27740c11d3dd565b193dcbf@161.97.102.0:26656
 5ad3b29bf56b9ba95c67f282aa281b6f0903e921@64.225.53.108:26656
 ```
+
+Please join the [Oraichain validators group](https://t.me/joinchat/yH9nMLrokQRhZGY1) on Telegram to discuss ideas and problems!
