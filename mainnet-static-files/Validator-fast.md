@@ -1,4 +1,3 @@
-
 # Tutorial to participate in the Oraichain mainnet
 
 This tutorial helps validators and full nodes quickly synchronize with the Oraichain mainnet by downloading a storage snapshot prepared by the team. The downloading speed is much faster than synchronizing from the first block, which allows fast set up to join the network in no time!
@@ -27,13 +26,9 @@ Storage: 200GB SSD
 
 **Estimated cost for a node with minimum requirements using Digital Ocean: $25/month**
 
-<p align="center">
-  <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/228802108_265846171652386_6928115342403148855_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=k52FsbGnSb0AX8E9f3n&_nc_ht=scontent.fhan5-1.fna&oh=1a8389436b635a4a16576a24b341b067&oe=61380788" alt="Public key of an address example"/>
-</p>
+![droplet](./droplet.jpg)
 
-<p align="center">
-  <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/228807280_419121109497778_1372075646368448603_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=l3zVG0aCSZAAX8WQMpS&_nc_ht=scontent.fhan5-1.fna&oh=526486c6dc3c35e83051d2a9f1c8c291&oe=61352A8D" alt="Public key of an address example"/>
-</p>
+![disk](./disk.jpg)
 
 ## Setup the validator node
 
@@ -98,7 +93,7 @@ The above commands run as the background process so when you turn off your Termi
 
 ### 3. Wait until your node is synchronized
 
-Please wait until your node is fully synchronized by typing: ```oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up}'```. If the **catching up** status is **false**, you can continue.
+Please wait until your node is fully synchronized by typing: `oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up}'`. If the **catching up** status is **false**, you can continue.
 
 Once your node is fully synchronized, we can finally remove the **.oraid.tar.gz** file to reduce the disk space used using the following command:
 
@@ -110,7 +105,7 @@ rm .oraid.tar.gz
 
 You need to store two following files: .oraid/config/node_key.json, .oraid/config/priv_validator_key.json. They contain your validator information for voting. Create backups for these files, otherwise you will lose your validator node if something wrong happens.
 
-You can check your wallet information by typing: ```oraid query auth account <your-validator-wallet-address>``` inside of the container or through the explorer, where you import your wallet. When your wallet has some tokens, please enter the container and type:
+You can check your wallet information by typing: `oraid query auth account <your-validator-wallet-address>` inside of the container or through the explorer, where you import your wallet. When your wallet has some tokens, please enter the container and type:
 
 ```bash
 fn createValidator
