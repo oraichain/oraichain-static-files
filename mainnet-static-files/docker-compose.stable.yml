@@ -21,6 +21,7 @@ services:
     command: bash -c 'oraivisor start'
     volumes:
       - ./:/workspace
+      - oraivisor:/root/oraivisor
 
 volumes:
   oraivisor:
