@@ -200,7 +200,7 @@ fn createValidator
 
 ## Check your node status with voting power
 
-Similarly to the [medium article](https://medium.com/oraichain/join-oraichain-testnet-beta-as-a-validator-484149374034), you can check your node status through:
+You can check your node status through:
 
 ```bash
 oraid status &> status.json && cat status.json | jq '{catching_up: .SyncInfo.catching_up, voting_power: .ValidatorInfo.VotingPower}'
