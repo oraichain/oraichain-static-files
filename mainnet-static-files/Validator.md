@@ -154,7 +154,7 @@ You should also set up firewalls for your genesis nodes.
 
 ## Start the network
 
-As a validator, you shoud provide public ip addresses and node ids of your sentry nodes your that other nodes can connect to. You can expose your validator node directly, or you can use sentry nodes. Remember to expose at least two ports: **26656 and 26657**
+As a validator, you shoud provide public ip addresses and node ids of your sentry nodes your that other nodes can connect to. You can expose your validator node directly, or you can use sentry nodes. Remember to expose at least one port: **26656**
 
 Please exit the container and follow the below steps to start the nodes
 
