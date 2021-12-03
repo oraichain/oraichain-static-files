@@ -220,7 +220,7 @@ initFn(){
 
     # download genesis json file
   
-    wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json
+    wget -O .oraid/config/genesis.json https://orai.s3.us-east-2.amazonaws.com/testnet/genesis.json
 
     oraid validate-genesis
     # done init
