@@ -16,7 +16,7 @@ execute the following instructions in order to verify the resulting genesis file
  
 # Summary
 
-The Oraichain will undergo a scheduled upgrade to Oraichain 2.0 on **a specific date here**.
+The Oraichain will undergo a scheduled upgrade to Oraichain 2.0 on Jan 15, 2022.
 
 The following is a short summary of the upgrade steps:
     1. Stopping the running Orai v0.40.2 instance 
@@ -77,17 +77,17 @@ The version/commit hash of Orai v0.40.2: `e8153326d4d752d8a6be3bb726afbb77fc3b52
     $ oraid version --long
     name: orai
     server_name: oraid
-    version: v0.40.1
+    version: v0.40.2
     commit: e8153326d4d752d8a6be3bb726afbb77fc3b522e
     build_tags: netgo,ledger
     go: go version go1.15.3 linux/amd64
    ```
 
 1. Make sure your chain halts at the right block height:
-    The halt height is: `1613628000`
+    The halt height is: `4839474`
 
     ```bash
-    sed -i 's/^halt-height =.*/halt-height = 1613628000/' .oraid/config/app.toml
+    sed -i 's/^halt-height =.*/halt-height = 4839474/' .oraid/config/app.toml
     ```
 
  1. After the chain has halted, make a backup of your `.oraid` directory
