@@ -1,6 +1,6 @@
 # Oraichain 2.0 Upgrade Instructions
 
-This document describes the steps for validator and full node operators for the successful execution of the Oraichain 2.0 Upgrade, which migrates the network to a new genesis state. This migration will help validator & full node operators reduce the amount of storage used. It will also allow new nodes to synchornize with the network quickly due to a new genesis height.
+This document describes the steps for validator and full node operators for the successful execution of the Oraichain 2.0 Upgrade, which migrates the network to a new genesis state.
 
 The Oraichain team
 will post an official Oraichain 2.0 genesis file, but it is recommended that validators
@@ -8,8 +8,7 @@ execute the following instructions in order to verify the resulting genesis file
 
   - [Summary](#summary)
   - [Migrations](#migrations)
-  - [Preliminary](#preliminary)
-  - [Major Updates](#major-updates)
+  - [Major Upgrades](#major-upgrades)
   - [Risks](#risks)
   - [Recovery](#recovery)
   - [Upgrade Procedure](#upgrade-procedure)
@@ -40,6 +39,10 @@ The network upgrade can take the following potential pathways:
 # Migrations
 
 These chapters contains all the migration guides to update your app and modules to Oraichain 2.0.
+
+# Major Upgrades
+
+This migration will create a new genesis file with a new genesis height. It also removes all previous historical blocks. As a result, this upgrade will help validator & full node operators reduce the amount of storage used. It will also allow new nodes to synchornize with the network quickly. The Oraichain team will maintain a few archive nodes that have the complete chain history for tracing purposes.
 
 ## Risks
 
