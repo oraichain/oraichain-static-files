@@ -51,7 +51,7 @@ docker-compose pull && docker-compose up -d --force-recreate
 ### 4. Type the following command to download the network's snapshot & init file for validators
 
 ```bash
-docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn && wget -O .oraid.tar.gz https://orai.s3.us-east-2.amazonaws.com/.oraid.tar.gz && tar -xzvf .oraid.tar.gz'
+docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn && wget -O - https://orai.s3.us-east-2.amazonaws.com/.oraid_new.tar.gz | tar -zxvf -'
 ```
 
 ### 5. Initiate your validator moniker and wallet
