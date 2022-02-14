@@ -57,3 +57,9 @@ In the zip contains the ```aioracle-executor-process-*``` programs, please choos
 
 You can click on the exe file to start running!
 
+If you see the following logs, then the program has run successfully:
+
+```
+Oraichain AI Executor program, v0.1.0
+```
+
