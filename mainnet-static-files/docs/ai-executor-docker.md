@@ -61,7 +61,7 @@ PIN=<your-pin-for-encrypted-mnemonic> docker-compose up -d
 
 ***Windows:***
 
-throw powershell
+with powershell:
 
 ```bash
 $Env:PIN = "<your-pin-for-encrypted-mnemonic>" && docker-compose up -d
