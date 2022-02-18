@@ -28,6 +28,7 @@ services:
     tty: true
     environment:
       - PIN=${PIN}
+      - DOCKER=true
     restart: on-failure
     volumes:
       - ./:/workspace
