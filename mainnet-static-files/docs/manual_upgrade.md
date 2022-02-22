@@ -3,28 +3,28 @@
 This tutorial assumes that an Oraichain network has already experienced multiple upgrades with many binaries. If the automatic upgrade fails, please follow the below steps to fix the problem and get your node updated. Make sure to check the required binary version of your node first before continuing. To check, enter your node's container and type:
 
 ```bash
-pkill oraid && oraid start
+pkill oraid && oraid version
 ```
 
-The commands kill the current running process of your node and start again in foreground mode
+The commands kill the current running process of your node and view the current oraid binary version
 
 ## 1. Back up your current node information
 
 You should always back up all the node information before upgrading in case something goes wrong. The two files you want to copy is: **.oraid/config/priv_validator_key.json and .oraid/config/node_key.json**
 
-## 2. Link current binary to the initial binary
+## 2. Create a directory for the latest binary version
 
-Enter the node's container and type:
+You should check the [explorer's latest software upgrade proposal](https://scan.orai.io/proposals?type=SoftwareUpgradeProposal) to collect the binary's version as well as its URL for downloading. To find the exact binary URL, please view the details of the exact upgrade version and enter the URL in the ***infor*** section. After entering, there should be another URL in the form of:
 
-```bash
-pkill oraid && unlink /root/oraivisor/current && ln -s /root/oraivisor/genesis /root/oraivisor/current
+```js
+{
+  "binaries": {
+  "linux/amd64": "<download-url>"
+  }
+}
 ```
 
-This command stops your node from running to prevent unexpected errors. It also links the current binary to the original version of your node, which is the genesis binary.
-
-## 3. Create a directory for the latest binary version
-
-You should check the [explorer's latest software upgrade proposal](https://scan.orai.io/proposals) to collect the binary's version as well as its URL for downloading. For example, the binary version is **v0.20.2**. Next, please type:
+Please collect the URL and type:
 
 ```bash
 apk add curl && rm -rf /root/oraivisor/upgrades/<binary-version> && mkdir -p /root/oraivisor/upgrades/<binary-version>/bin && curl <binary-url> > /root/oraivisor/upgrades/<binary-version>/bin/oraid && chmod +x /root/oraivisor/upgrades/<binary-version>/bin/oraid
