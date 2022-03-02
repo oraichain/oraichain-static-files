@@ -36,7 +36,7 @@ Storage: 200GB SSD
 curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.fast.yml && curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/orai.env && mv docker-compose.fast.yml docker-compose.yml
 ```
 
-### 2. Edit wallet name and moniker you prefer in the orai.env file you have just downloaded
+### 2. Edit your moniker in the orai.env file you have just downloaded
 
 ### 3. Build and enter the container
 
