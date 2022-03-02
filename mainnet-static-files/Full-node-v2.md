@@ -63,8 +63,10 @@ wget -O /workspace/.oraid/config/genesis.json https://raw.githubusercontent.com/
 
 ### 5. Download Chain Data
 
+In the container, please type:
+
 ```bash
-docker-compose exec orai bash -c 'wget -O - https://orai.s3.us-east-2.amazonaws.com/oraid-data-bk.tar.gz | tar -zxvf - && mv /workspace/data/* /workspace/.oraid/data/'
+wget -O - https://orai.s3.us-east-2.amazonaws.com/oraid-data-bk.tar.gz | tar -zxvf - && mv /workspace/data/* /workspace/.oraid/data/
 ```
 
 ### 6. Start the node
