@@ -65,10 +65,10 @@ wget -O /workspace/.oraid/config/genesis.json https://raw.githubusercontent.com/
 
 ### 5. Download Chain Data
 
-```bash
-docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn && wget -O - https://orai.s3.us-east-2.amazonaws.com/oraid-data-bk.tar.gz | tar -zxvf -'
+enter the container and type:
 
-mv -r workspace/data/* /workspace/.oraid/data/
+```bash
+wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn && wget -O - https://orai.s3.us-east-2.amazonaws.com/oraid-data-bk.tar.gz | tar -zxvf - && mv /workspace/data/* /workspace/.oraid/data/ && mv /workspace/wasm/ /workspace/.oraid/
 ```
 
 ### 6. Initiate your validator wallet
