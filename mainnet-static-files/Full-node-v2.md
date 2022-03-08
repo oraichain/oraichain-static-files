@@ -66,7 +66,7 @@ wget -O /workspace/.oraid/config/genesis.json https://raw.githubusercontent.com/
 In the container, please type:
 
 ```bash
-wget -O - https://orai.s3.us-east-2.amazonaws.com/oraid-data-bk.tar.gz | tar -zxvf - && mv /workspace/data/* /workspace/.oraid/data/ && mv /workspace/wasm/ /workspace/.oraid/
+wget -O - https://orai.s3.us-east-2.amazonaws.com/oraid-data-wasm-bk.tar.gz | tar -zxvf - && mv /workspace/data/* /workspace/.oraid/data/ && mv /workspace/wasm/ /workspace/.oraid/
 ```
 
 ### 6. Start the node
