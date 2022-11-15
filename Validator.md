@@ -1,6 +1,6 @@
 # Tutorial to participate in the Oraichain mainnet
 
-This tutorial allows validators and full nodes synchronize with the Oraichain mainnet from scratch using the traditional synchronization method from Tendermint. If you want a reduce the time syncing, please refer to [this tutorial](https://github.com/oraichain/oraichain-static-files/blob/master/mainnet-static-files/Validator-fast.md).
+This tutorial allows validators and full nodes synchronize with the Oraichain mainnet from scratch using the traditional synchronization method from Tendermint. If you want a reduce the time syncing, please refer to [this tutorial](https://docs.orai.io/developers/networks/mainnet/become-a-validator).
 
 ## Hardware specifications for an Oraichain node:
 
@@ -8,32 +8,24 @@ This tutorial allows validators and full nodes synchronize with the Oraichain ma
 
 ```
 The number of CPUs: 2vCPUs
-RAM: 2GB
-Storage: 100GB SSD
+RAM: 4GB
+Storage: 300GB SSD
 ```
 
 **Recommended requirements**
 
 ```
-The number of CPUs: 2vCPUs
-RAM: 2GB
-Storage: 200GB SSD
+The number of CPUs: 4vCPUs
+RAM: 4GB
+Storage: 500GB SSD
 ```
-
-<p align="center">
-  <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/228802108_265846171652386_6928115342403148855_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=k52FsbGnSb0AX8E9f3n&_nc_ht=scontent.fhan5-1.fna&oh=1a8389436b635a4a16576a24b341b067&oe=61380788" alt="Public key of an address example"/>
-</p>
-
-<p align="center">
-  <img src="https://scontent.fhan5-1.fna.fbcdn.net/v/t1.15752-9/228807280_419121109497778_1372075646368448603_n.png?_nc_cat=109&ccb=1-4&_nc_sid=ae9488&_nc_ohc=l3zVG0aCSZAAX8WQMpS&_nc_ht=scontent.fhan5-1.fna&oh=526486c6dc3c35e83051d2a9f1c8c291&oe=61352A8D" alt="Public key of an address example"/>
-</p>
 
 ## Setup the validator node
 
 ### 1. Download and run the setup file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/setup.sh && chmod +x ./setup.sh && ./setup.sh
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/setup.sh && chmod +x ./setup.sh && ./setup.sh
 ```
 
 ### 2. Edit wallet name and moniker you prefer to create a new wallet and validator in the orai.env file you have just downloaded
@@ -47,7 +39,7 @@ docker-compose pull && docker-compose up -d --force-recreate
 ### 4. Type the following command to initiate your node
 
 ```bash
-docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/fn.sh && chmod +x /usr/bin/fn' && docker-compose exec orai fn init
+docker-compose exec orai bash -c 'wget -O /usr/bin/fn https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/fn.sh && chmod +x /usr/bin/fn' && docker-compose exec orai fn init
 ```
 
 After running, there will be an account.txt file generated, which stores your account information as well as its mnemonic. Please keep it safe, and remove the file when you finish storing your account information.
@@ -67,7 +59,7 @@ oraid tendermint show-node-id
 ### 1. Download the docker-compose file
 
 ```bash
-curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/docker-compose.yml && chmod +x docker-compose.yml && touch orai.env
+curl -OL https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/docker-compose-sync-zero-block.yml && mv docker-compose-sync-zero-block.yml docker-compose.yml && chmod +x docker-compose.yml && touch orai.env
 ```
 
 ### 2. Enter the container
@@ -87,7 +79,7 @@ you can choose whatever moniker as you like, since your sentry nodes will not ru
 ### 4. Download the common genesis file (If only the common genesis file is set)
 
 ```bash
-wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/mainnet-static-files/genesis.json
+wget -O .oraid/config/genesis.json https://raw.githubusercontent.com/oraichain/oraichain-static-files/master/genesis.json
 ```
 
 ## Setup the sentry architecture
