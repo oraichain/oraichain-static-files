@@ -18,6 +18,7 @@ services:
       - SYS_PTRACE
     env_file:
       - orai.env
+    command: sh setup.sh
     volumes:
       - ./:/workspace
       - oraivisor:/root/oraivisor
