@@ -9,7 +9,7 @@ if [ ! -d "$(pwd)/.oraid" ]; then
     # make orai state sync directories
     mkdir .oraid
 
-    SNAP_IP2=${SNAP_IP2:-"35.227.96.96"}
+    SNAP_IP2=${SNAP_IP2:-"34.75.13.200"}
     SNAP_IP1=${SNAP_IP1:-"3.134.19.98"}
     CHAIN_ID="Oraichain"
     TRUST_HEIGHT_RANGE=${TRUST_HEIGHT_RANGE:-200}
