@@ -91,4 +91,4 @@ fi
 
 
 # THERE, NOW IT'S SYNCED AND YOU CAN PLAY
-oraivisor start --home=.orZZaid --minimum-gas-prices=0.001orai
+oraivisor start --home=.oraid --minimum-gas-prices=0.001orai
