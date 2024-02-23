@@ -5,6 +5,7 @@ services:
     image: oraichain/foundation-orai:0.41.6-alpine-prod
     working_dir: /workspace
     tty: true
+    restart: on-failure
     ulimits:
       nofile:
         soft: 65536
