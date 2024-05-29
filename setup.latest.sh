@@ -9,30 +9,25 @@ if [ ! -d "$(pwd)/.oraid" ]; then
     # make orai state sync directories
     mkdir .oraid
 
-    SEED=e18f82a6da3a9842fa55769955d694f62f7f48bd@seed1.orai.zone:26656,893f246ffdffae0a9ef127941379303531f50d5c@seed2.orai.zone:26656,4fa7895fc43f618b53cd314585b421ee47b75639@seed3.orai.zone:26656,defeea41a01b5afdb79ef2af155866e122797a9c@seed4.orai.zone:26656
-    SNAP_IP3=${SNAP_IP3:-"statesync3.orai.zone"}
+    SEED=e18f82a6da3a9842fa55769955d694f62f7f48bd@seed1.orai.zone:26656,defeea41a01b5afdb79ef2af155866e122797a9c@seed4.orai.zone:26656
     SNAP_IP2=${SNAP_IP2:-"statesync2.orai.zone"}
     SNAP_IP1=${SNAP_IP1:-"statesync1.orai.zone"}
     CHAIN_ID="Oraichain"
-    TRUST_HEIGHT_RANGE=${TRUST_HEIGHT_RANGE:-200}
+    TRUST_HEIGHT_RANGE=${TRUST_HEIGHT_RANGE:-1000}
 
     PEER_RPC_PORT=26657
     PEER_P2P_PORT=26656
 
-    SNAP_RPC3=http://$SNAP_IP3:$PEER_RPC_PORT
     SNAP_RPC2=http://$SNAP_IP2:$PEER_RPC_PORT
     SNAP_RPC1=http://$SNAP_IP1:$PEER_RPC_PORT
 
-    PEER_ID3=$(curl --no-progress-meter $SNAP_RPC3/status | jq -r '.result.node_info.id')
     PEER_ID2=$(curl --no-progress-meter $SNAP_RPC2/status | jq -r '.result.node_info.id')
     PEER_ID1=$(curl --no-progress-meter $SNAP_RPC1/status | jq -r '.result.node_info.id')
 
-    echo "peer id 3: $PEER_ID3"
     echo "peer id 2: $PEER_ID2"
     echo "peer id 1: $PEER_ID1"
 
     # persistent_peers
-    PEER3="$PEER_ID3@$SNAP_IP3:$PEER_P2P_PORT"
     PEER2="$PEER_ID2@$SNAP_IP2:$PEER_P2P_PORT"
     PEER1="$PEER_ID1@$SNAP_IP1:$PEER_P2P_PORT"
 
@@ -60,9 +55,9 @@ if [ ! -d "$(pwd)/.oraid" ]; then
     # sed -i -e "s%^indexer *=.*%indexer = \"null\"%; " $STATESYNC_CONFIG
 
     # GET TRUST HASH AND TRUST HEIGHT
-    LATEST_HEIGHT=$(curl -s $SNAP_RPC2/block | jq -r .result.block.header.height); \
+    LATEST_HEIGHT=$(curl -s $SNAP_RPC1/block | jq -r .result.block.header.height); \
     BLOCK_HEIGHT=$((LATEST_HEIGHT - $TRUST_HEIGHT_RANGE)); \
-    TRUST_HASH=$(curl -s "$SNAP_RPC2/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
+    TRUST_HASH=$(curl -s "$SNAP_RPC1/block?height=$BLOCK_HEIGHT" | jq -r .result.block_id.hash)
 
     # TELL USER WHAT WE ARE DOING
     echo "LATEST HEIGHT: $LATEST_HEIGHT"
@@ -75,9 +70,9 @@ if [ ! -d "$(pwd)/.oraid" ]; then
 
     s|^(addr_book_strict[[:space:]]+=[[:space:]]+).*$|\1false| ; \
 
-    s|^(persistent_peers[[:space:]]+=[[:space:]]+).*$|\1\"$PEER1,$PEER2,$PEER3\"| ; \
+    s|^(persistent_peers[[:space:]]+=[[:space:]]+).*$|\1\"$PEER1,$PEER2\"| ; \
 
-    s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC1,$SNAP_RPC2,$SNAP_RPC3\"| ; \
+    s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC1,$SNAP_RPC2\"| ; \
 
     s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 
